@@ -1,8 +1,11 @@
-package com.java.study.javastudy.controller;
+package com.java.study.javastudy.comprehensive;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ *   减去毫秒数的时候要转化为Long （(1000*60*60*24*30L)），不然回int  超长  即使是long 也可能会出现超长的情况 所以此方式谨慎使用
+ */
 public class DateErrorTest {
 
 
