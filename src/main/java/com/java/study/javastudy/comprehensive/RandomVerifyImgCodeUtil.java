@@ -1,4 +1,4 @@
-package com.java.study.javastudy.controller;
+package com.java.study.javastudy.comprehensive;
 
 
 
