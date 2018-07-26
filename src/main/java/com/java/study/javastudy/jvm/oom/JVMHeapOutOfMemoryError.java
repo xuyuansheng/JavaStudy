@@ -1,4 +1,4 @@
-package com.java.study.javastudy.jvm;
+package com.java.study.javastudy.jvm.oom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,12 @@ public class JVMHeapOutOfMemoryError {
     public static void main(String[] args) {
         List<Object> list = new ArrayList<>();
         while (true){
-            list.add(new Object());
+            list.add(new MYObject());
         }
+    }
+
+    static class MYObject{
+
     }
 
 }

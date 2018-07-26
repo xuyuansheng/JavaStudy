@@ -1,4 +1,4 @@
-package com.java.study.javastudy.jvm;
+package com.java.study.javastudy.jvm.oom;
 
 /**
  * java虚拟机栈和本地方法栈溢出
