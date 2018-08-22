@@ -1,4 +1,4 @@
-package com.java.study.javastudy.jvm;
+package com.java.study.javastudy.jvm.oom;
 
 import java.util.ArrayList;
 import java.util.List;
