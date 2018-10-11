@@ -11,6 +11,9 @@ public class JavaStudyApplicationTests {
 
     @Test
     public void contextLoads() {
+
+
+
     }
 
 }
