@@ -3,10 +3,7 @@ package com.java.study.javastudy.concurrence;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * java并发编程,不能用junit测试
@@ -14,29 +11,29 @@ import java.util.concurrent.Future;
 public class JavaConcurrence {
 
     @Test
-    public void concurrence(){
+    public void concurrence() {
         LiftOff lunch = new LiftOff();
         lunch.run();
     }
 
     @Test
-    public void basicThreads(){
+    public void basicThreads() {
         Thread thread = new Thread(new LiftOff());
         thread.start();
         System.out.println("Waiting for LiftOff!");
     }
-
-
+    //
     @Test
     public void moreBasicThreads() {
         for (int i = 0; i < 5; i++) {
             new Thread(new ExerciseJava()).start();
-            System.out.println("Waiting for LiftOff! "+i);
+            System.out.println("Waiting for LiftOff! " + i);
         }
 
     }
+    //线程池
     @Test
-    public   void cachedThreadPool(){
+    public void cachedThreadPool() {
         ExecutorService exec = Executors.newCachedThreadPool();
         ExecutorService exec2 = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 5; i++) {
@@ -44,36 +41,35 @@ public class JavaConcurrence {
         }
         exec.shutdown();
     }
-
+    //定长的线程池
     @Test
-    public   void  fixedThreadPool(){
+    public void fixedThreadPool() {
         ExecutorService exec = Executors.newFixedThreadPool(5);
         for (int i = 0; i < 5; i++) {
             exec.execute(new LiftOff());
         }
         exec.shutdown();
     }
-
+    //单线程的线程池
     @Test
-    public   void  singleThreadPool(){
+    public void singleThreadPool() {
         ExecutorService exec = Executors.newSingleThreadExecutor();
         for (int i = 0; i < 5; i++) {
             exec.execute(new LiftOff());
         }
         exec.shutdown();
     }
-
+    //定时线程池
     @Test
-    public   void  scheduledThreadPool(){
+    public void scheduledThreadPool() {
         ExecutorService exec = Executors.newScheduledThreadPool(5);
         for (int i = 0; i < 5; i++) {
             exec.execute(new LiftOff());
         }
         exec.shutdown();
     }
-
-
-    public void  callableThread(){
+    //带返回值的线程
+    public void callableThread() {
         ExecutorService exec = Executors.newCachedThreadPool();
         ArrayList<Future<String>> results = new ArrayList<Future<String>>();
 
@@ -87,26 +83,80 @@ public class JavaConcurrence {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        for (Future<String>  fs:results
-             ) {
+        for (Future<String> fs : results
+                ) {
             try {
-                if(fs.isDone()){
+                if (fs.isDone()) {
                     System.out.println(fs.get());
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 exec.shutdown();
             }
         }
     }
-
+    //Fibonacci数列
     public void fibonacci() {
         for (int i = 0; i < 10; i++) {
             new Thread(new Fibonacci(i + 5)).start();
         }
+    }
+    //Fibonacci数列
+    public void fibonacciSum() {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        ArrayList<Future<Integer>> results = new ArrayList<Future<Integer>>();
+        for (int i = 0; i < 10; i++) {
+            Future<Integer> result = exec.submit(new FibonacciSum(i + 3));
+            results.add(result);
+        }
+        try {
+            for (Future<Integer> res : results
+                    ) {
+                //主线程会阻塞在res.get() 等待线程池中计算的结果
+                System.out.println(res.get());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+    //线程休眠
+    public void sleepingTask() {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        for (int i = 0; i < 10; i++) {
+            exec.execute(new SleepingTask());
+        }
+    }
+
+    //线程优先级
+    public void simplePriorities() {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        for (int i = 0; i < 5; i++) {
+            exec.execute(new SimplePriorities(Thread.MIN_PRIORITY));//先开启多个低优先级的线程
+        }
+        exec.execute(new SimplePriorities(Thread.MAX_PRIORITY));//最后开启一个高优先级的线程
+        exec.shutdown();
+
+    }
+
+    //后台线程
+    public void simpleDaemons() {
+        for (int i = 0; i < 10; i++) {
+            Thread daemon = new Thread(new SimpleDaemons());
+            daemon.setDaemon(true);//设为后台线程
+            daemon.start();
+        }
+        System.out.println("所有线程已启动！");
+        try {
+            TimeUnit.MILLISECONDS.sleep(110);//调整为不同的值  看看后台线程的输出为什么
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) {
@@ -115,9 +165,13 @@ public class JavaConcurrence {
 //        new JavaConcurrence().fixedThreadPool();
 //        new JavaConcurrence().singleThreadPool();
 //        new JavaConcurrence().scheduledThreadPool();
-        new JavaConcurrence().callableThread();
+//        new JavaConcurrence().callableThread();
+//        new JavaConcurrence().fibonacci();
+//        new JavaConcurrence().fibonacciSum();
+//        new JavaConcurrence().sleepingTask();
+//        new JavaConcurrence().simplePriorities();
+        new JavaConcurrence().simpleDaemons();
     }
-
 
 
 }
