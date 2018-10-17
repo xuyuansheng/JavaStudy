@@ -159,6 +159,8 @@ public class JavaConcurrence {
 
     }
 
+
+
     public static void main(String[] args) {
 //        new JavaConcurrence().moreBasicThreads();
 //        new JavaConcurrence().cachedThreadPool();
@@ -170,7 +172,7 @@ public class JavaConcurrence {
 //        new JavaConcurrence().fibonacciSum();
 //        new JavaConcurrence().sleepingTask();
 //        new JavaConcurrence().simplePriorities();
-        new JavaConcurrence().simpleDaemons();
+//        new JavaConcurrence().simpleDaemons();
     }
 
 
