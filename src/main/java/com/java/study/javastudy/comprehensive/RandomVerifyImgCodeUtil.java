@@ -2,7 +2,7 @@ package com.java.study.javastudy.comprehensive;
 
 
 
-import net.shgaoxin.tool.img.GifEncoder;
+
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -243,37 +243,39 @@ public class RandomVerifyImgCodeUtil
             g2.dispose();
             ImageIO.write(image, "jpg", os);
         }
-        else if (type.contains("GIF") || type.contains("mixGIF"))
-        {
-            GifEncoder gifEncoder = new GifEncoder(); // gif编码类，这个利用了洋人写的编码类
-            // 生成字符
-            gifEncoder.start(os);
-            gifEncoder.setQuality(180);
-            gifEncoder.setDelay(150);
-            gifEncoder.setRepeat(0);
-
-            AlphaComposite ac3;
-            for (int i = 0; i < verifySize; i++)
-            {
-                g2.setColor(getRandColor(100, 160));
-                g2.setFont(getRandomFont(h, type));
-                for (int j = 0; j < verifySize; j++)
-                {
-                    AffineTransform affine = new AffineTransform();
-                    affine.setToRotation(Math.PI / 4 * rd * (rb ? 1 : -1), (w / verifySize) * i + (h - 4) / 2, h / 2);
-                    g2.setTransform(affine);
-                    g2.drawChars(chars, i, 1, ((w - 10) / verifySize) * i + 5, h / 2 + (h - 4) / 2 - 10);
-
-                    ac3 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, getAlpha(j, i, verifySize));
-                    g2.setComposite(ac3);
-                    g2.drawOval(random.nextInt(w), random.nextInt(h), 5 + random.nextInt(10), 5 + random.nextInt(10));
-                    gifEncoder.addFrame(image);
-                    image.flush();
-                }
-            }
-            gifEncoder.finish();
-            g2.dispose();
-        }
+//        =======================此处一下被注释,无法正常使用===============================
+//        else if (type.contains("GIF") || type.contains("mixGIF"))
+//        {
+//            GifEncoder gifEncoder = new GifEncoder(); // gif编码类，这个利用了洋人写的编码类
+//            // 生成字符
+//            gifEncoder.start(os);
+//            gifEncoder.setQuality(180);
+//            gifEncoder.setDelay(150);
+//            gifEncoder.setRepeat(0);
+//
+//            AlphaComposite ac3;
+//            for (int i = 0; i < verifySize; i++)
+//            {
+//                g2.setColor(getRandColor(100, 160));
+//                g2.setFont(getRandomFont(h, type));
+//                for (int j = 0; j < verifySize; j++)
+//                {
+//                    AffineTransform affine = new AffineTransform();
+//                    affine.setToRotation(Math.PI / 4 * rd * (rb ? 1 : -1), (w / verifySize) * i + (h - 4) / 2, h / 2);
+//                    g2.setTransform(affine);
+//                    g2.drawChars(chars, i, 1, ((w - 10) / verifySize) * i + 5, h / 2 + (h - 4) / 2 - 10);
+//
+//                    ac3 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, getAlpha(j, i, verifySize));
+//                    g2.setComposite(ac3);
+//                    g2.drawOval(random.nextInt(w), random.nextInt(h), 5 + random.nextInt(10), 5 + random.nextInt(10));
+//                    gifEncoder.addFrame(image);
+//                    image.flush();
+//                }
+//            }
+//            gifEncoder.finish();
+//            g2.dispose();
+//        }
+//        =============================此处以上被注释,无法正常使用=====================================================
         else
         {
             for (int i = 0; i < verifySize; i++)

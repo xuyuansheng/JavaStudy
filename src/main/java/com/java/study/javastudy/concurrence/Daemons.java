@@ -12,7 +12,7 @@ public class Daemons{
         t.setDaemon(true);
         t.start();
         try {
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.MICROSECONDS.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
