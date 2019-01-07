@@ -11,6 +11,7 @@ import java.lang.reflect.Method;
  * 测试思路：借助CGLib 产生大量动态类填到啊方法区，直到方法区溢出
  *  1.7 及以下 VM Args :  -XX:PermSize=10M   -XX:MaxPermSize=10M
  *  1.8  VM Args : -XX:MetaspaceSize=5M -XX:MaxMetaspaceSize=5M
+ * @author xu
  */
 public class JavaMethodAreaOOM {
 
@@ -29,7 +30,6 @@ public class JavaMethodAreaOOM {
             });
             enhancer.create();
         }
-
     }
 
     static class OOMObject{
