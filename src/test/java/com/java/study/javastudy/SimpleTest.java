@@ -1,9 +1,11 @@
 package com.java.study.javastudy;
 
 
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 
 import java.io.*;
+import java.lang.reflect.Proxy;
 
 public class SimpleTest {
     @Test
@@ -25,5 +27,18 @@ public class SimpleTest {
         }
         bufferedWriter.flush();
     }
+    @Test
+    public void test() throws IOException {
 
+        SimpleTestInterface proxyClass = (SimpleTestInterface) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), new Class[]{SimpleTestInterface.class}, new MyMethodImpl(new SimpleTestInterfaceImpl()));
+        proxyClass.my("参数1","参数2","参数3","参数2");
+        System.out.println("====================================================");
+        proxyClass.my2("参数1","参数2","参数3","参数2");
+        System.out.println("====================================================");
+        proxyClass.noAnno("参数1","参数2","参数3","参数2");
+
+
+    }
+
+    
 }

@@ -169,7 +169,7 @@ public class JavaConcurrence {
 //        new JavaConcurrence().scheduledThreadPool();
 //        new JavaConcurrence().callableThread();
 //        new JavaConcurrence().fibonacci();
-//        new JavaConcurrence().fibonacciSum();
+        new JavaConcurrence().fibonacciSum();
 //        new JavaConcurrence().sleepingTask();
 //        new JavaConcurrence().simplePriorities();
 //        new JavaConcurrence().simpleDaemons();

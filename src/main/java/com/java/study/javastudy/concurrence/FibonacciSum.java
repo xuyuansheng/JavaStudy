@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 
 /**
- * 计算Fibonacci数列的数字总和，并返回计算记过
+ * 计算Fibonacci数列的数字总和，并返回计算结果
  */
 public class FibonacciSum implements Callable<Integer> {
 
