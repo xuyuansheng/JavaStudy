@@ -3,11 +3,26 @@ package com.java.study.javastudy;
 
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
+import org.springframework.util.StringUtils;
 
 import java.io.*;
 import java.lang.reflect.Proxy;
+import java.util.Base64;
 
 public class SimpleTest {
+
+    @Test
+    public void decode(){
+        byte[] decode = Base64.getDecoder().decode("adas");
+        byte[] encode = Base64.getEncoder().encode("abs".getBytes());
+        System.out.println(new String(decode));
+        System.out.println(new String(encode));
+        byte[] decode2 = Base64.getDecoder().decode(encode);
+        System.out.println(new String(decode2));
+
+    }
+
+
     @Test
     public void contextLoads() throws IOException {
         File file=new File("e://debug_s24.log");
