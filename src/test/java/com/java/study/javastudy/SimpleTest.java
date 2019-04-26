@@ -1,9 +1,9 @@
 package com.java.study.javastudy;
 
 
-import com.alibaba.fastjson.JSON;
+import io.github.yedaxia.apidocs.Docs;
+import io.github.yedaxia.apidocs.DocsConfig;
 import org.junit.Test;
-import org.springframework.util.StringUtils;
 
 import java.io.*;
 import java.lang.reflect.Proxy;
@@ -11,6 +11,13 @@ import java.util.Base64;
 
 public class SimpleTest {
 
+    @Test
+    public void apiGetTest(){
+        /** api 生成工具测试方法 */
+        DocsConfig config = new DocsConfig();
+        config.setProjectPath("D:\\JavaWorkSpace\\JavaStudy");
+        Docs.buildHtmlDocs( config);
+    }
     @Test
     public void decode(){
         byte[] decode = Base64.getDecoder().decode("adas");
