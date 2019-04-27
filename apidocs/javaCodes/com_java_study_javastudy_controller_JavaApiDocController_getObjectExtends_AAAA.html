@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AAAA</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css" rel="stylesheet">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class AAAA implements Serializable{
+
+    private String name; //
+    private int intp; //
+    private long longp; //
+    private int nameI; //
+    private Object[] list; //
+    private String my; //
+
+    @JSONField(name="name")
+    public String getName(){
+        return name;
+    }
+
+    @JSONField(name="name")
+    public void setName(String name){
+        this.name = name;
+    }
+
+    @JSONField(name="intp")
+    public int getIntp(){
+        return intp;
+    }
+
+    @JSONField(name="intp")
+    public void setIntp(int intp){
+        this.intp = intp;
+    }
+
+    @JSONField(name="longp")
+    public long getLongp(){
+        return longp;
+    }
+
+    @JSONField(name="longp")
+    public void setLongp(long longp){
+        this.longp = longp;
+    }
+
+    @JSONField(name="nameI")
+    public int getNameI(){
+        return nameI;
+    }
+
+    @JSONField(name="nameI")
+    public void setNameI(int nameI){
+        this.nameI = nameI;
+    }
+
+    @JSONField(name="list")
+    public Object[] getList(){
+        return list;
+    }
+
+    @JSONField(name="list")
+    public void setList(Object[] list){
+        this.list = list;
+    }
+
+    @JSONField(name="my")
+    public String getMy(){
+        return my;
+    }
+
+    @JSONField(name="my")
+    public void setMy(String my){
+        this.my = my;
+    }
+
+}
+</pre>
+
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+
+@startuml
+
+
+
+
+Class01 <|--- Class02: 泛化(继承)
+Class11 <|... Class12: 泛化(实现)
+
+Class07 ... Class08:依赖(双向)
+Class15 ...> Class16:依赖(单向)
+
+Class09 --- Class10:关联(双向)
+Class13 ---> Class14 :关联(单向)
+
+Class05 o---> Class06:聚合
+
+Class03 *--- Class04: 合成(或:组合)
+Class19 <---* Class20:合成(或:组合)
+
+@enduml
