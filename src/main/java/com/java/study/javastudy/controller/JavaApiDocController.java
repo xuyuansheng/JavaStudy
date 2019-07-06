@@ -1,11 +1,12 @@
 package com.java.study.javastudy.controller;
 
 import io.github.yedaxia.apidocs.ApiDoc;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @program: java-study
@@ -59,6 +60,9 @@ public class JavaApiDocController {
 	}
 
 	/**
+	 *
+	 *
+	 * @see com.java.study.javastudy.annotations.MethodLogAspect
 	 *   getObjectExtends
 	 * @param  name 姓名
 	 * @deprecated   xys

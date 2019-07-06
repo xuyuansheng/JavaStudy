@@ -3,6 +3,7 @@ package com.java.study.javastudy;
 
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import java.io.*;
@@ -10,6 +11,13 @@ import java.lang.reflect.Proxy;
 import java.util.Base64;
 
 public class SimpleTest {
+
+
+    @Test
+    public void regPattern(){
+
+    }
+
 
     @Test
     public void apiGetTest(){
