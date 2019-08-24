@@ -1,31 +1,123 @@
 package com.java.study.javastudy;
 
 
+import com.alibaba.fastjson.JSON;
+import com.google.gson.JsonArray;
+import com.java.study.javastudy.annotations.MyMethodLog;
+import com.java.study.javastudy.controller.JavaJarRelyOnBean;
+import com.java.study.javastudy.controller.ResultVo;
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.*;
-import java.lang.reflect.Proxy;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.*;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SimpleTest {
+
+    @Test
+    public void testStringUtils() throws NoSuchMethodException {
+
+
+        Type type = JavaJarRelyOnBean.class.getMethod("test3").getGenericReturnType();
+
+
+    }
+
+
+    @Test
+    public void testAnno() throws NoSuchMethodException {
+
+        RequestMapping map = JavaJarRelyOnBean.class.getAnnotation(RequestMapping.class);
+        String[] value = map.value();
+        String[] path = map.path();
+        String name = map.name();
+
+        Method test1M = JavaJarRelyOnBean.class.getDeclaredMethod("test1",String.class,Integer.class);
+        boolean f1 = test1M.isAnnotationPresent(MyMethodLog.class);
+        RequestParam ano1 = test1M.getDeclaredAnnotation(RequestParam.class);
+        Parameter[] par = test1M.getParameters();
+        for (Parameter p :
+                par) {
+            Annotation[] annos = p.getAnnotations();
+            AnnotatedType anoot = p.getAnnotatedType();
+            Type paT = p.getParameterizedType();
+            System.out.println(annos);
+        }
+        System.out.println("");
+
+    }
+
+
+    public static void main(String[] args)
+    {
+        Set set = new HashSet();
+        System.out.println("BootstrapClassLoader 的加载路径: ");
+
+        //String[] bootUrls = System.getProperty("sun.boot.class.path").split(";");
+
+        URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
+        set.addAll(Stream.of(urls).collect(Collectors.toList()));
+        for(URL url : urls)
+            System.out.println(url);
+
+        System.out.println("----------------------------");
+
+        //取得扩展类加载器
+        URLClassLoader extClassLoader = (URLClassLoader)ClassLoader.getSystemClassLoader().getParent();
+
+        System.out.println(extClassLoader);
+        System.out.println("扩展类加载器 的加载路径: ");
+
+        urls = extClassLoader.getURLs();
+        set.addAll(Stream.of(urls).collect(Collectors.toList()));
+        for(URL url : urls)
+            System.out.println(url);
+
+        System.out.println("----------------------------");
+
+
+        //取得应用(系统)类加载器
+        URLClassLoader appClassLoader = (URLClassLoader)ClassLoader.getSystemClassLoader();
+
+        System.out.println(appClassLoader);
+        System.out.println("应用(系统)类加载器 的加载路径: ");
+
+        urls = appClassLoader.getURLs();
+        set.addAll(Stream.of(urls).collect(Collectors.toList()));
+        for(URL url : urls)
+            System.out.println(url);
+
+        System.out.println("----------------------------");
+        System.out.println(JSON.toJSONString(set));
+    }
 
 
     @Test
     public void regPattern() {
+        JsonArray jsonArray = new JsonArray();
         for (String p :
                 System.getProperties().stringPropertyNames()) {
             String value = System.getProperty(p);
             if (value.contains("D:\\JavaProgramFiles\\Maven\\repository")) {
-                System.out.println(p+"============="+value);
                 for (String a: value.split(";")
                 ) {
                     System.out.println(a);
+                    jsonArray.add(a);
+
                 }
             }
         }
-
+        jsonArray.toString();
 
         System.out.println(23/4);
     }

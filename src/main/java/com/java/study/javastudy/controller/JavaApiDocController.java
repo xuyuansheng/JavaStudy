@@ -41,7 +41,7 @@ public class JavaApiDocController {
 	 */
 	@ApiDoc(MyObject.class)
 	@PostMapping("/getObject")
-	public String  getObject( List<String> name){
+	public String  getObject(List<String> name){
 		System.out.println(name);
 		return "";
 	}
@@ -54,9 +54,9 @@ public class JavaApiDocController {
 	 */
 	@ApiDoc(NeiObject.class)
 	@PostMapping("/getObjectNNN")
-	public String  getObjectNNN(MyObject name){
+	public NeiObject  getObjectNNN(MyObject name){
 		System.out.println(name);
-		return "";
+		return null;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class JavaApiDocController {
 	@PostMapping("/getObjectExtends")
 	public String  getObjectExtends(MyObject name){
 		System.out.println(name);
-		return "";
+		return null;
 	}
 
 }
@@ -83,6 +83,7 @@ class MyObject{
 	private long longp;
 	private Integer nameI;
 	private List list;
+	private NeiObject neiObject;
 }
 
 class NeiObject{
@@ -93,4 +94,5 @@ class NeiObject{
 
 class AAAA extends MyObject{
 	private String my;
+	private AAAA aaa;
 }

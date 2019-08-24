@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 @Aspect
 public class MethodLogAspect {
-
+//com.java.study.javastudy.annotations.MethodLogAspect
 
     private final ObjectMapper mapper;
 
