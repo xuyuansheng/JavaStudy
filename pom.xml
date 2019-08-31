@@ -91,27 +91,27 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>com.github.apiggs</groupId>-->
-<!--                <artifactId>apiggs-maven-plugin</artifactId>-->
-<!--                <version>1.6</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>compile</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>apiggs</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash; options in there &ndash;&gt;-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>com.github.apiggs</groupId>
+                <artifactId>apiggs-maven-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>apiggs</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- options in there -->
+                </configuration>
+            </plugin>
 
             <plugin>
-                <groupId>cn.xuxiaobu.maven</groupId>
+                <groupId>com.github.xuyuansheng</groupId>
                 <artifactId>xbapi-maven-plugin</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

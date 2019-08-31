@@ -20,7 +20,7 @@ import java.util.List;
 public class JavaApiDocController {
 
 	/**
-	 *   获取gestring
+	 *   获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring
 	 * @param  name 姓名
 	 * @deprecated   xys
 	 * @date 2019/4/26

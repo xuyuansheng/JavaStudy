@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonArray;
 import com.java.study.javastudy.annotations.MyMethodLog;
 import com.java.study.javastudy.controller.JavaJarRelyOnBean;
-import com.java.study.javastudy.controller.ResultVo;
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;
 import org.apache.commons.lang3.StringUtils;
@@ -33,6 +32,19 @@ public class SimpleTest {
 
     }
 
+    @Test
+    public void testReadTxt() throws IOException {
+
+        FileInputStream file = new FileInputStream(new File("C:\\Users\\xuyuansheng\\Desktop\\maven-tag.txt"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(file));
+        String  line =null;
+        StringBuffer stringBuffer=new StringBuffer();
+        while ((line=reader.readLine())!=null){
+            String str = StringUtils.replacePattern(line, "<.*/>", line.trim()+"content"+line.trim());
+            stringBuffer.append(str).append("\n");
+        }
+        String a = stringBuffer.toString();
+    }
 
     @Test
     public void testAnno() throws NoSuchMethodException {
@@ -42,7 +54,7 @@ public class SimpleTest {
         String[] path = map.path();
         String name = map.name();
 
-        Method test1M = JavaJarRelyOnBean.class.getDeclaredMethod("test1",String.class,Integer.class);
+        Method test1M = JavaJarRelyOnBean.class.getDeclaredMethod("test1", String.class, Integer.class);
         boolean f1 = test1M.isAnnotationPresent(MyMethodLog.class);
         RequestParam ano1 = test1M.getDeclaredAnnotation(RequestParam.class);
         Parameter[] par = test1M.getParameters();
@@ -58,8 +70,7 @@ public class SimpleTest {
     }
 
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Set set = new HashSet();
         System.out.println("BootstrapClassLoader 的加载路径: ");
 
@@ -67,34 +78,34 @@ public class SimpleTest {
 
         URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
         set.addAll(Stream.of(urls).collect(Collectors.toList()));
-        for(URL url : urls)
+        for (URL url : urls)
             System.out.println(url);
 
         System.out.println("----------------------------");
 
         //取得扩展类加载器
-        URLClassLoader extClassLoader = (URLClassLoader)ClassLoader.getSystemClassLoader().getParent();
+        URLClassLoader extClassLoader = (URLClassLoader) ClassLoader.getSystemClassLoader().getParent();
 
         System.out.println(extClassLoader);
         System.out.println("扩展类加载器 的加载路径: ");
 
         urls = extClassLoader.getURLs();
         set.addAll(Stream.of(urls).collect(Collectors.toList()));
-        for(URL url : urls)
+        for (URL url : urls)
             System.out.println(url);
 
         System.out.println("----------------------------");
 
 
         //取得应用(系统)类加载器
-        URLClassLoader appClassLoader = (URLClassLoader)ClassLoader.getSystemClassLoader();
+        URLClassLoader appClassLoader = (URLClassLoader) ClassLoader.getSystemClassLoader();
 
         System.out.println(appClassLoader);
         System.out.println("应用(系统)类加载器 的加载路径: ");
 
         urls = appClassLoader.getURLs();
         set.addAll(Stream.of(urls).collect(Collectors.toList()));
-        for(URL url : urls)
+        for (URL url : urls)
             System.out.println(url);
 
         System.out.println("----------------------------");
@@ -109,7 +120,7 @@ public class SimpleTest {
                 System.getProperties().stringPropertyNames()) {
             String value = System.getProperty(p);
             if (value.contains("D:\\JavaProgramFiles\\Maven\\repository")) {
-                for (String a: value.split(";")
+                for (String a : value.split(";")
                 ) {
                     System.out.println(a);
                     jsonArray.add(a);
@@ -119,7 +130,7 @@ public class SimpleTest {
         }
         jsonArray.toString();
 
-        System.out.println(23/4);
+        System.out.println(23 / 4);
     }
 
 
@@ -139,7 +150,6 @@ public class SimpleTest {
     }
 
 
-
     public int lengthOfLongestSubstring(String s) {
         char[] array = Optional.ofNullable(s).orElse("").toCharArray();
         int length = 0;
@@ -147,14 +157,14 @@ public class SimpleTest {
         for (int i = 0; i < array.length; i++) {
             if (!list.contains(array[i])) {
                 list.add(array[i]);
-            }else {
-                length=list.size()>length?list.size():length;
+            } else {
+                length = list.size() > length ? list.size() : length;
                 while (!list.remove().equals(array[i])) {
                 }
                 list.add(array[i]);
             }
         }
-        return list.size()>length?list.size():length;
+        return list.size() > length ? list.size() : length;
     }
 
     @Test
@@ -177,7 +187,7 @@ public class SimpleTest {
     }
 
 
-//    @Test
+    //    @Test
     public void contextLoads() throws IOException {
         File file = new File("e://debug_s24.log");
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
