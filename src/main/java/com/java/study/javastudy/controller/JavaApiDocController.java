@@ -15,15 +15,14 @@ import java.util.List;
  * @create: 2019-04-26 21:51
  **/
 
-@RestController
+//@RestController
 @RequestMapping("javaApiDocController")
 public class JavaApiDocController {
 
 	/**
-	 *   获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring获取gestring
-	 * @param  name 姓名
-	 * @deprecated   xys
-	 * @date 2019/4/26
+	 * 获取java,api的描述
+	 * @param name 参数 name
+	 * @return 返回一个String
 	 */
 	@ApiDoc(String.class)
 	@PostMapping("/getString")

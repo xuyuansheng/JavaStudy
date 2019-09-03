@@ -26,8 +26,7 @@ public class SimpleTest {
     @Test
     public void testStringUtils() throws NoSuchMethodException {
 
-
-        Type type = JavaJarRelyOnBean.class.getMethod("test3").getGenericReturnType();
+        URL url = ClassLoader.class.getResource("/");
 
 
     }

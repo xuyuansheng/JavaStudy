@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+//@RestController
 @RequestMapping(value = {"javaJar","javaClass"}, method = {RequestMethod.POST})
 public class JavaJarRelyOnBean {
     /**
