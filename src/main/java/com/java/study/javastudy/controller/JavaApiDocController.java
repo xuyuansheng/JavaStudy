@@ -1,6 +1,11 @@
 package com.java.study.javastudy.controller;
 
+import com.xuyuansheng.demospringbootstarter.PropertiesConfig;
+import com.xuyuansheng.demospringbootstarter.StarterAutoConfigure;
+import com.xuyuansheng.demospringbootstarter.StarterService;
 import io.github.yedaxia.apidocs.ApiDoc;
+import org.checkerframework.checker.units.qual.A;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,9 +20,18 @@ import java.util.List;
  * @create: 2019-04-26 21:51
  **/
 
-//@RestController
+@RestController
 @RequestMapping("javaApiDocController")
 public class JavaApiDocController {
+
+	@Autowired
+	StarterService  starterService;
+
+	@Autowired
+	StarterAutoConfigure  starterAutoConfigure;
+
+	@Autowired
+	PropertiesConfig propertiesConfig;
 
 	/**
 	 * 获取java,api的描述

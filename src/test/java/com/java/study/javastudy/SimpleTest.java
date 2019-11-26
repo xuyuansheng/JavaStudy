@@ -24,11 +24,14 @@ import java.util.stream.Stream;
 public class SimpleTest {
 
     @Test
-    public void testStringUtils() throws NoSuchMethodException {
+    public void testStringUtils() throws Exception {
 
-        URL url = ClassLoader.class.getResource("/");
-
-
+        short s0=(short)15;
+        short s1=5;
+//        throw new StreamCorruptedException(
+//                String.format("invalid stream header: %04X%04X", s0, s1));
+        String a = String.format("invalid stream header: %04X%04X", s0, s1);
+        System.out.println(a);
     }
 
     @Test

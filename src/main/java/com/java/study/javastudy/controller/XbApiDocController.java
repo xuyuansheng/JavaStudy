@@ -24,6 +24,7 @@ public class XbApiDocController {
      *
      * @param name 参数名称 name
      * @return 返回值string
+     *
      */
     @PostMapping("/getString")
     public String getString(@RequestParam(required = false, value = "a") String name) {

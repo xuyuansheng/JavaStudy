@@ -12,10 +12,14 @@ import lombok.Data;
 public class XbApiResult {
     /**
      * 姓名
+     *
+     * @defaultValue name的默认值
      */
-    private String name;
+    private String name = "name ";
     /**
      * 年龄
+     *
+     * @defaultValue age  的默认值
      */
     private Integer age;
     /**
