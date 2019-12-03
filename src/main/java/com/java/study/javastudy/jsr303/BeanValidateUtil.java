@@ -40,7 +40,7 @@ public final class BeanValidateUtil<T> {
      */
     public BeanValidateUtil(T defaultValueBean, boolean ifDefaultValueEnabled) {
         if (Objects.isNull(defaultValueBean)) {
-            throw new IllegalArgumentException("需要校验的类型不能为 null");
+            throw new IllegalArgumentException("需要校验的类型不能为 null , 如果不需要默认值,请设置 ifDefaultValueEnabled = false");
         }
         this.defaultValueBean = defaultValueBean;
         this.ifDefaultValueEnabled = ifDefaultValueEnabled;
@@ -48,7 +48,7 @@ public final class BeanValidateUtil<T> {
 
     private T defaultValueBean;
     /**
-     * 第一次校验失败时是否赋值默认对象
+     * 第一次校验失败时,是否使用defaultValueBean中的字段重新给校验不通过的字段重新赋值,然后重新校验
      */
     private boolean ifDefaultValueEnabled = true;
 
@@ -72,7 +72,7 @@ public final class BeanValidateUtil<T> {
         // 执行验证
         Set<ConstraintViolation<T>> validateSet = validator.validate(bean, groups);
 
-        if (validateSet.size() == 0 || Objects.isNull(defaultValueBean)) {
+        if (validateSet.size() == 0 || !ifDefaultValueEnabled) {
             return getValidateResultList(validateSet);
         }
 
