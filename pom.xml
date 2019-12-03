@@ -65,6 +65,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
         <!-- api 生成工具-->
         <dependency>
             <groupId>io.github.yedaxia</groupId>
@@ -81,7 +86,7 @@
             <artifactId>java-jwt</artifactId>
             <version>3.8.3</version>
         </dependency>
-<!--        <dependency>-->
+        <!--        <dependency>-->
         <!--            <groupId>com.github.xuyuansheng</groupId>-->
         <!--            <artifactId>xbapi-maven-plugin</artifactId>-->
         <!--            <version>1.1</version>-->
