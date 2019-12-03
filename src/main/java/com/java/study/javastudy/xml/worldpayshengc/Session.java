@@ -14,83 +14,41 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="shopperIPAddress" use="required" type="{http://www.w3.org/2001/XMLSchema}NMTOKEN" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
+
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
 @XmlRootElement(name = "session")
 public class Session {
 
+    /**
+     * 每笔交易需要一个唯一的值
+     */
     @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String id;
+    private String id;
+    /**
+     * 客户的IP地址
+     */
     @XmlAttribute(name = "shopperIPAddress", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NMTOKEN")
-    protected String shopperIPAddress;
+    private String shopperIPAddress;
 
-    /**
-     * ��ȡid���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getId() {
         return id;
     }
 
-    /**
-     * ����id���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    /**
-     * ��ȡshopperIPAddress���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getShopperIPAddress() {
         return shopperIPAddress;
     }
 
-    /**
-     * ����shopperIPAddress���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShopperIPAddress(String value) {
-        this.shopperIPAddress = value;
+    public void setShopperIPAddress(String shopperIPAddress) {
+        this.shopperIPAddress = shopperIPAddress;
     }
-
 }

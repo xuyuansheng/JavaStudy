@@ -8,60 +8,30 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}date"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "date"
-})
 @XmlRootElement(name = "expiryDate")
 public class ExpiryDate {
 
-    @XmlElement(required = true)
-    protected Date date;
-
     /**
-     * ��ȡdate���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link Date }
-     *     
+     * 过期日期
      */
+    @XmlElement(required = true)
+    private Date date;
+
     public Date getDate() {
         return date;
     }
 
-    /**
-     * ����date���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Date }
-     *     
-     */
-    public void setDate(Date value) {
-        this.date = value;
+    public void setDate(Date date) {
+        this.date = date;
     }
-
 }

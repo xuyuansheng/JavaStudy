@@ -8,60 +8,27 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}amount"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "amount"
-})
 @XmlRootElement(name = "transactionRiskDataGiftCardAmount")
 public class TransactionRiskDataGiftCardAmount {
 
     @XmlElement(required = true)
-    protected Amount amount;
+    private Amount amount;
 
-    /**
-     * ��ȡamount���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link Amount }
-     *     
-     */
     public Amount getAmount() {
         return amount;
     }
 
-    /**
-     * ����amount���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Amount }
-     *     
-     */
-    public void setAmount(Amount value) {
-        this.amount = value;
+    public void setAmount(Amount amount) {
+        this.amount = amount;
     }
-
 }

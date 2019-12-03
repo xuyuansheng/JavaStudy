@@ -11,141 +11,69 @@ package com.java.study.javastudy.xml.worldpayshengc;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.math.BigInteger;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="currencyCode" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="debitCreditIndicator" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="exponent" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="value" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
 @XmlRootElement(name = "amount")
 public class Amount {
 
+    /**
+     * 详细说明相关国家的货币 (ISO 4217) 代码。 必须大写
+     */
     @XmlAttribute(name = "currencyCode", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String currencyCode;
+    private String currencyCode;
+    /**
+     *
+     */
     @XmlAttribute(name = "debitCreditIndicator", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String debitCreditIndicator;
-    @XmlAttribute(name = "exponent", required = true)
-    protected BigInteger exponent;
-    @XmlAttribute(name = "value", required = true)
-    protected BigInteger value;
-
+    private String debitCreditIndicator;
     /**
-     * ��ȡcurrencyCode���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 详细说明应在该值自右起放置小数点或逗号
      */
+    @XmlAttribute(name = "exponent", required = true)
+    private int exponent;
+    /**
+     * 详细说明买家有望支付的总金额。 最大值 2147483647
+     */
+    @XmlAttribute(name = "value", required = true)
+    private int value;
+
     public String getCurrencyCode() {
         return currencyCode;
     }
 
-    /**
-     * ����currencyCode���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCurrencyCode(String value) {
-        this.currencyCode = value;
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
     }
 
-    /**
-     * ��ȡdebitCreditIndicator���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getDebitCreditIndicator() {
         return debitCreditIndicator;
     }
 
-    /**
-     * ����debitCreditIndicator���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDebitCreditIndicator(String value) {
-        this.debitCreditIndicator = value;
+    public void setDebitCreditIndicator(String debitCreditIndicator) {
+        this.debitCreditIndicator = debitCreditIndicator;
     }
 
-    /**
-     * ��ȡexponent���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getExponent() {
+    public int getExponent() {
         return exponent;
     }
 
-    /**
-     * ����exponent���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setExponent(BigInteger value) {
-        this.exponent = value;
+    public void setExponent(int exponent) {
+        this.exponent = exponent;
     }
 
-    /**
-     * ��ȡvalue���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getValue() {
+    public int getValue() {
         return value;
     }
 
-    /**
-     * ����value���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setValue(BigInteger value) {
+    public void setValue(int value) {
         this.value = value;
     }
-
 }

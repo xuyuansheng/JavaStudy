@@ -14,202 +14,93 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}address1"/>
- *         &lt;element ref="{}address2"/>
- *         &lt;element ref="{}address3"/>
- *         &lt;element ref="{}postalCode"/>
- *         &lt;element ref="{}city"/>
- *         &lt;element ref="{}countryCode"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "address1",
-    "address2",
-    "address3",
-    "postalCode",
-    "city",
-    "countryCode"
-})
 @XmlRootElement(name = "address")
 public class Address {
-
-    @XmlElement(required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected String address1;
-    @XmlElement(required = true)
-    protected String address2;
-    @XmlElement(required = true)
-    protected String address3;
-    @XmlElement(required = true)
-    protected String postalCode;
-    @XmlElement(required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected String city;
-    @XmlElement(required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected String countryCode;
-
     /**
-     * ��ȡaddress1���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 帐单联系人地址行1。 除非提供<city>，否则为可选。
      */
+    @XmlElement(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NCName")
+    private String address1;
+    /**
+     * 帐单联系人地址行2 可选
+     */
+    @XmlElement
+    private String address2;
+    /**
+     * 帐单联系人地址行2 可选
+     */
+    @XmlElement
+    private String address3;
+    /**
+     * 帐单联系人邮政编码/邮政编码。 例如“ CB4 0WE”
+     */
+    @XmlElement(required = true)
+    private String postalCode;
+    /**
+     * 联系人城市。 除非提供了<address1>，否则为可选。
+     */
+    @XmlElement(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NCName")
+    private String city;
+    /**
+     * 帐单联系ISO国家/地区代码。必须是大写 有关详细信息，请参见ISO国家/地区代码
+     */
+    @XmlElement(required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NCName")
+    private String countryCode;
+
     public String getAddress1() {
         return address1;
     }
 
-    /**
-     * ����address1���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAddress1(String value) {
-        this.address1 = value;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
-    /**
-     * ��ȡaddress2���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getAddress2() {
         return address2;
     }
 
-    /**
-     * ����address2���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAddress2(String value) {
-        this.address2 = value;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
-    /**
-     * ��ȡaddress3���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getAddress3() {
         return address3;
     }
 
-    /**
-     * ����address3���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAddress3(String value) {
-        this.address3 = value;
+    public void setAddress3(String address3) {
+        this.address3 = address3;
     }
 
-    /**
-     * ��ȡpostalCode���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getPostalCode() {
         return postalCode;
     }
 
-    /**
-     * ����postalCode���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPostalCode(String value) {
-        this.postalCode = value;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
-    /**
-     * ��ȡcity���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getCity() {
         return city;
     }
 
-    /**
-     * ����city���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCity(String value) {
-        this.city = value;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    /**
-     * ��ȡcountryCode���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getCountryCode() {
         return countryCode;
     }
 
-    /**
-     * ����countryCode���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCountryCode(String value) {
-        this.countryCode = value;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
-
 }

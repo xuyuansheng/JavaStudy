@@ -9,255 +9,116 @@
 package com.java.study.javastudy.xml.worldpayshengc;
 
 import javax.xml.bind.annotation.*;
-import java.math.BigInteger;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}description"/>
- *         &lt;element ref="{}amount"/>
- *         &lt;element ref="{}orderContent"/>
- *         &lt;element ref="{}paymentDetails"/>
- *         &lt;element ref="{}shopper"/>
- *         &lt;element ref="{}riskData"/>
- *         &lt;element ref="{}additional3DSData"/>
- *       &lt;/sequence>
- *       &lt;attribute name="orderCode" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author 020102
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "description",
-    "amount",
-    "orderContent",
-    "paymentDetails",
-    "shopper",
-    "riskData",
-    "additional3DSData"
-})
 @XmlRootElement(name = "order")
 public class Order {
-
-    @XmlElement(required = true)
-    protected String description;
-    @XmlElement(required = true)
-    protected Amount amount;
-    @XmlElement(required = true)
-    protected OrderContent orderContent;
-    @XmlElement(required = true)
-    protected PaymentDetails paymentDetails;
-    @XmlElement(required = true)
-    protected Shopper shopper;
-    @XmlElement(required = true)
-    protected RiskData riskData;
-    @XmlElement(required = true)
-    protected Additional3DSData additional3DSData;
-    @XmlAttribute(name = "orderCode", required = true)
-    protected BigInteger orderCode;
-
     /**
-     * ��ȡdescription���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 您所指定的订单描述
      */
+    @XmlElement(required = true)
+    private String description;
+    /**
+     * 订单金额的信息
+     */
+    @XmlElement(required = true)
+    private Amount amount;
+    /**
+     * 订单内容 内容要用 <![CDATA[]]>包裹
+     */
+    @XmlElement()
+    private String orderContent;
+    /**
+     * 订单详情
+     */
+    @XmlElement(required = true)
+    private PaymentDetails paymentDetails;
+    /**
+     * 购买者信息
+     */
+    @XmlElement(required = true)
+    private Shopper shopper;
+    /**
+     * 风险数据,用来提升授权通过概率或3ds2验证时挑战成功率
+     */
+    @XmlElement()
+    private RiskData riskData;
+    /**
+     * 3ds2的额外数据
+     */
+    @XmlElement()
+    private AdditionalThreeDsData additional3DSData;
+    /**
+     * 订单号, 您所指定的订单代码。 理想情况下，后续流程不会超过 20 个
+     */
+    @XmlAttribute(name = "orderCode", required = true)
+    private String orderCode;
+
     public String getDescription() {
         return description;
     }
 
-    /**
-     * ����description���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDescription(String value) {
-        this.description = value;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    /**
-     * ��ȡamount���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link Amount }
-     *     
-     */
     public Amount getAmount() {
         return amount;
     }
 
-    /**
-     * ����amount���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Amount }
-     *     
-     */
-    public void setAmount(Amount value) {
-        this.amount = value;
+    public void setAmount(Amount amount) {
+        this.amount = amount;
     }
 
-    /**
-     * ��ȡorderContent���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link OrderContent }
-     *     
-     */
-    public OrderContent getOrderContent() {
+    public String getOrderContent() {
         return orderContent;
     }
 
-    /**
-     * ����orderContent���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OrderContent }
-     *     
-     */
-    public void setOrderContent(OrderContent value) {
-        this.orderContent = value;
+    public void setOrderContent(String orderContent) {
+        this.orderContent = orderContent;
     }
 
-    /**
-     * ��ȡpaymentDetails���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link PaymentDetails }
-     *     
-     */
     public PaymentDetails getPaymentDetails() {
         return paymentDetails;
     }
 
-    /**
-     * ����paymentDetails���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PaymentDetails }
-     *     
-     */
-    public void setPaymentDetails(PaymentDetails value) {
-        this.paymentDetails = value;
+    public void setPaymentDetails(PaymentDetails paymentDetails) {
+        this.paymentDetails = paymentDetails;
     }
 
-    /**
-     * ��ȡshopper���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link Shopper }
-     *     
-     */
     public Shopper getShopper() {
         return shopper;
     }
 
-    /**
-     * ����shopper���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Shopper }
-     *     
-     */
-    public void setShopper(Shopper value) {
-        this.shopper = value;
+    public void setShopper(Shopper shopper) {
+        this.shopper = shopper;
     }
 
-    /**
-     * ��ȡriskData���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link RiskData }
-     *     
-     */
     public RiskData getRiskData() {
         return riskData;
     }
 
-    /**
-     * ����riskData���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RiskData }
-     *     
-     */
-    public void setRiskData(RiskData value) {
-        this.riskData = value;
+    public void setRiskData(RiskData riskData) {
+        this.riskData = riskData;
     }
 
-    /**
-     * ��ȡadditional3DSData���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link Additional3DSData }
-     *     
-     */
-    public Additional3DSData getAdditional3DSData() {
+    public AdditionalThreeDsData getAdditional3DSData() {
         return additional3DSData;
     }
 
-    /**
-     * ����additional3DSData���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Additional3DSData }
-     *     
-     */
-    public void setAdditional3DSData(Additional3DSData value) {
-        this.additional3DSData = value;
+    public void setAdditional3DSData(AdditionalThreeDsData additional3DSData) {
+        this.additional3DSData = additional3DSData;
     }
 
-    /**
-     * ��ȡorderCode���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getOrderCode() {
+    public String getOrderCode() {
         return orderCode;
     }
 
-    /**
-     * ����orderCode���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setOrderCode(BigInteger value) {
-        this.orderCode = value;
+    public void setOrderCode(String orderCode) {
+        this.orderCode = orderCode;
     }
-
 }

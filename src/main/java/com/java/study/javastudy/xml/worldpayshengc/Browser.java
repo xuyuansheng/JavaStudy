@@ -8,88 +8,42 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}acceptHeader"/>
- *         &lt;element ref="{}userAgentHeader"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "acceptHeader",
-    "userAgentHeader"
-})
 @XmlRootElement(name = "browser")
 public class Browser {
-
-    @XmlElement(required = true)
-    protected String acceptHeader;
-    @XmlElement(required = true)
-    protected String userAgentHeader;
-
     /**
-     * ��ȡacceptHeader���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 必须包含与购物者的用户代理发送给您的HTTP用户头完全相同的内容
      */
+    @XmlElement(required = true)
+    private String acceptHeader;
+    /**
+     * 必须包含与购物者的用户代理发送给您的HTTP用户代理头完全相同的内容
+     */
+    @XmlElement(required = true)
+    private String userAgentHeader;
+
     public String getAcceptHeader() {
         return acceptHeader;
     }
 
-    /**
-     * ����acceptHeader���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAcceptHeader(String value) {
-        this.acceptHeader = value;
+    public void setAcceptHeader(String acceptHeader) {
+        this.acceptHeader = acceptHeader;
     }
 
-    /**
-     * ��ȡuserAgentHeader���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getUserAgentHeader() {
         return userAgentHeader;
     }
 
-    /**
-     * ����userAgentHeader���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUserAgentHeader(String value) {
-        this.userAgentHeader = value;
+    public void setUserAgentHeader(String userAgentHeader) {
+        this.userAgentHeader = userAgentHeader;
     }
-
 }

@@ -15,459 +15,180 @@ import java.math.BigInteger;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}shopperAccountCreationDate"/>
- *         &lt;element ref="{}shopperAccountModificationDate"/>
- *         &lt;element ref="{}shopperAccountPasswordChangeDate"/>
- *         &lt;element ref="{}shopperAccountShippingAddressFirstUseDate"/>
- *         &lt;element ref="{}shopperAccountPaymentAccountFirstUseDate"/>
- *       &lt;/sequence>
- *       &lt;attribute name="addCardAttemptsLastDay" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="previousSuspiciousActivity" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="purchasesCompletedLastSixMonths" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="shippingNameMatchesAccountName" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="shopperAccountAgeIndicator" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="shopperAccountChangeIndicator" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="shopperAccountPasswordChangeIndicator" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="shopperAccountPaymentAccountIndicator" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="shopperAccountShippingAddressUsageIndicator" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="transactionsAttemptedLastDay" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="transactionsAttemptedLastYear" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "shopperAccountCreationDate",
-    "shopperAccountModificationDate",
-    "shopperAccountPasswordChangeDate",
-    "shopperAccountShippingAddressFirstUseDate",
-    "shopperAccountPaymentAccountFirstUseDate"
-})
 @XmlRootElement(name = "shopperAccountRiskData")
 public class ShopperAccountRiskData {
 
     @XmlElement(required = true)
-    protected ShopperAccountCreationDate shopperAccountCreationDate;
+    private ShopperAccountCreationDate shopperAccountCreationDate;
     @XmlElement(required = true)
-    protected ShopperAccountModificationDate shopperAccountModificationDate;
+    private ShopperAccountModificationDate shopperAccountModificationDate;
     @XmlElement(required = true)
-    protected ShopperAccountPasswordChangeDate shopperAccountPasswordChangeDate;
+    private ShopperAccountPasswordChangeDate shopperAccountPasswordChangeDate;
     @XmlElement(required = true)
-    protected ShopperAccountShippingAddressFirstUseDate shopperAccountShippingAddressFirstUseDate;
+    private ShopperAccountShippingAddressFirstUseDate shopperAccountShippingAddressFirstUseDate;
     @XmlElement(required = true)
-    protected ShopperAccountPaymentAccountFirstUseDate shopperAccountPaymentAccountFirstUseDate;
+    private ShopperAccountPaymentAccountFirstUseDate shopperAccountPaymentAccountFirstUseDate;
     @XmlAttribute(name = "addCardAttemptsLastDay", required = true)
-    protected BigInteger addCardAttemptsLastDay;
+    private BigInteger addCardAttemptsLastDay;
     @XmlAttribute(name = "previousSuspiciousActivity", required = true)
-    protected boolean previousSuspiciousActivity;
+    private boolean previousSuspiciousActivity;
     @XmlAttribute(name = "purchasesCompletedLastSixMonths", required = true)
-    protected BigInteger purchasesCompletedLastSixMonths;
+    private BigInteger purchasesCompletedLastSixMonths;
     @XmlAttribute(name = "shippingNameMatchesAccountName", required = true)
-    protected boolean shippingNameMatchesAccountName;
+    private boolean shippingNameMatchesAccountName;
     @XmlAttribute(name = "shopperAccountAgeIndicator", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String shopperAccountAgeIndicator;
+    private String shopperAccountAgeIndicator;
     @XmlAttribute(name = "shopperAccountChangeIndicator", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String shopperAccountChangeIndicator;
+    private String shopperAccountChangeIndicator;
     @XmlAttribute(name = "shopperAccountPasswordChangeIndicator", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String shopperAccountPasswordChangeIndicator;
+    private String shopperAccountPasswordChangeIndicator;
     @XmlAttribute(name = "shopperAccountPaymentAccountIndicator", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String shopperAccountPaymentAccountIndicator;
+    private String shopperAccountPaymentAccountIndicator;
     @XmlAttribute(name = "shopperAccountShippingAddressUsageIndicator", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String shopperAccountShippingAddressUsageIndicator;
+    private String shopperAccountShippingAddressUsageIndicator;
     @XmlAttribute(name = "transactionsAttemptedLastDay", required = true)
-    protected BigInteger transactionsAttemptedLastDay;
+    private BigInteger transactionsAttemptedLastDay;
     @XmlAttribute(name = "transactionsAttemptedLastYear", required = true)
-    protected BigInteger transactionsAttemptedLastYear;
+    private BigInteger transactionsAttemptedLastYear;
 
-    /**
-     * ��ȡshopperAccountCreationDate���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShopperAccountCreationDate }
-     *     
-     */
     public ShopperAccountCreationDate getShopperAccountCreationDate() {
         return shopperAccountCreationDate;
     }
 
-    /**
-     * ����shopperAccountCreationDate���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ShopperAccountCreationDate }
-     *     
-     */
-    public void setShopperAccountCreationDate(ShopperAccountCreationDate value) {
-        this.shopperAccountCreationDate = value;
+    public void setShopperAccountCreationDate(ShopperAccountCreationDate shopperAccountCreationDate) {
+        this.shopperAccountCreationDate = shopperAccountCreationDate;
     }
 
-    /**
-     * ��ȡshopperAccountModificationDate���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShopperAccountModificationDate }
-     *     
-     */
     public ShopperAccountModificationDate getShopperAccountModificationDate() {
         return shopperAccountModificationDate;
     }
 
-    /**
-     * ����shopperAccountModificationDate���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ShopperAccountModificationDate }
-     *     
-     */
-    public void setShopperAccountModificationDate(ShopperAccountModificationDate value) {
-        this.shopperAccountModificationDate = value;
+    public void setShopperAccountModificationDate(ShopperAccountModificationDate shopperAccountModificationDate) {
+        this.shopperAccountModificationDate = shopperAccountModificationDate;
     }
 
-    /**
-     * ��ȡshopperAccountPasswordChangeDate���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShopperAccountPasswordChangeDate }
-     *     
-     */
     public ShopperAccountPasswordChangeDate getShopperAccountPasswordChangeDate() {
         return shopperAccountPasswordChangeDate;
     }
 
-    /**
-     * ����shopperAccountPasswordChangeDate���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ShopperAccountPasswordChangeDate }
-     *     
-     */
-    public void setShopperAccountPasswordChangeDate(ShopperAccountPasswordChangeDate value) {
-        this.shopperAccountPasswordChangeDate = value;
+    public void setShopperAccountPasswordChangeDate(ShopperAccountPasswordChangeDate shopperAccountPasswordChangeDate) {
+        this.shopperAccountPasswordChangeDate = shopperAccountPasswordChangeDate;
     }
 
-    /**
-     * ��ȡshopperAccountShippingAddressFirstUseDate���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShopperAccountShippingAddressFirstUseDate }
-     *     
-     */
     public ShopperAccountShippingAddressFirstUseDate getShopperAccountShippingAddressFirstUseDate() {
         return shopperAccountShippingAddressFirstUseDate;
     }
 
-    /**
-     * ����shopperAccountShippingAddressFirstUseDate���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ShopperAccountShippingAddressFirstUseDate }
-     *     
-     */
-    public void setShopperAccountShippingAddressFirstUseDate(ShopperAccountShippingAddressFirstUseDate value) {
-        this.shopperAccountShippingAddressFirstUseDate = value;
+    public void setShopperAccountShippingAddressFirstUseDate(ShopperAccountShippingAddressFirstUseDate shopperAccountShippingAddressFirstUseDate) {
+        this.shopperAccountShippingAddressFirstUseDate = shopperAccountShippingAddressFirstUseDate;
     }
 
-    /**
-     * ��ȡshopperAccountPaymentAccountFirstUseDate���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link ShopperAccountPaymentAccountFirstUseDate }
-     *     
-     */
     public ShopperAccountPaymentAccountFirstUseDate getShopperAccountPaymentAccountFirstUseDate() {
         return shopperAccountPaymentAccountFirstUseDate;
     }
 
-    /**
-     * ����shopperAccountPaymentAccountFirstUseDate���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ShopperAccountPaymentAccountFirstUseDate }
-     *     
-     */
-    public void setShopperAccountPaymentAccountFirstUseDate(ShopperAccountPaymentAccountFirstUseDate value) {
-        this.shopperAccountPaymentAccountFirstUseDate = value;
+    public void setShopperAccountPaymentAccountFirstUseDate(ShopperAccountPaymentAccountFirstUseDate shopperAccountPaymentAccountFirstUseDate) {
+        this.shopperAccountPaymentAccountFirstUseDate = shopperAccountPaymentAccountFirstUseDate;
     }
 
-    /**
-     * ��ȡaddCardAttemptsLastDay���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
     public BigInteger getAddCardAttemptsLastDay() {
         return addCardAttemptsLastDay;
     }
 
-    /**
-     * ����addCardAttemptsLastDay���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setAddCardAttemptsLastDay(BigInteger value) {
-        this.addCardAttemptsLastDay = value;
+    public void setAddCardAttemptsLastDay(BigInteger addCardAttemptsLastDay) {
+        this.addCardAttemptsLastDay = addCardAttemptsLastDay;
     }
 
-    /**
-     * ��ȡpreviousSuspiciousActivity���Ե�ֵ��
-     * 
-     */
     public boolean isPreviousSuspiciousActivity() {
         return previousSuspiciousActivity;
     }
 
-    /**
-     * ����previousSuspiciousActivity���Ե�ֵ��
-     * 
-     */
-    public void setPreviousSuspiciousActivity(boolean value) {
-        this.previousSuspiciousActivity = value;
+    public void setPreviousSuspiciousActivity(boolean previousSuspiciousActivity) {
+        this.previousSuspiciousActivity = previousSuspiciousActivity;
     }
 
-    /**
-     * ��ȡpurchasesCompletedLastSixMonths���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
     public BigInteger getPurchasesCompletedLastSixMonths() {
         return purchasesCompletedLastSixMonths;
     }
 
-    /**
-     * ����purchasesCompletedLastSixMonths���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setPurchasesCompletedLastSixMonths(BigInteger value) {
-        this.purchasesCompletedLastSixMonths = value;
+    public void setPurchasesCompletedLastSixMonths(BigInteger purchasesCompletedLastSixMonths) {
+        this.purchasesCompletedLastSixMonths = purchasesCompletedLastSixMonths;
     }
 
-    /**
-     * ��ȡshippingNameMatchesAccountName���Ե�ֵ��
-     * 
-     */
     public boolean isShippingNameMatchesAccountName() {
         return shippingNameMatchesAccountName;
     }
 
-    /**
-     * ����shippingNameMatchesAccountName���Ե�ֵ��
-     * 
-     */
-    public void setShippingNameMatchesAccountName(boolean value) {
-        this.shippingNameMatchesAccountName = value;
+    public void setShippingNameMatchesAccountName(boolean shippingNameMatchesAccountName) {
+        this.shippingNameMatchesAccountName = shippingNameMatchesAccountName;
     }
 
-    /**
-     * ��ȡshopperAccountAgeIndicator���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getShopperAccountAgeIndicator() {
         return shopperAccountAgeIndicator;
     }
 
-    /**
-     * ����shopperAccountAgeIndicator���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShopperAccountAgeIndicator(String value) {
-        this.shopperAccountAgeIndicator = value;
+    public void setShopperAccountAgeIndicator(String shopperAccountAgeIndicator) {
+        this.shopperAccountAgeIndicator = shopperAccountAgeIndicator;
     }
 
-    /**
-     * ��ȡshopperAccountChangeIndicator���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getShopperAccountChangeIndicator() {
         return shopperAccountChangeIndicator;
     }
 
-    /**
-     * ����shopperAccountChangeIndicator���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShopperAccountChangeIndicator(String value) {
-        this.shopperAccountChangeIndicator = value;
+    public void setShopperAccountChangeIndicator(String shopperAccountChangeIndicator) {
+        this.shopperAccountChangeIndicator = shopperAccountChangeIndicator;
     }
 
-    /**
-     * ��ȡshopperAccountPasswordChangeIndicator���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getShopperAccountPasswordChangeIndicator() {
         return shopperAccountPasswordChangeIndicator;
     }
 
-    /**
-     * ����shopperAccountPasswordChangeIndicator���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShopperAccountPasswordChangeIndicator(String value) {
-        this.shopperAccountPasswordChangeIndicator = value;
+    public void setShopperAccountPasswordChangeIndicator(String shopperAccountPasswordChangeIndicator) {
+        this.shopperAccountPasswordChangeIndicator = shopperAccountPasswordChangeIndicator;
     }
 
-    /**
-     * ��ȡshopperAccountPaymentAccountIndicator���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getShopperAccountPaymentAccountIndicator() {
         return shopperAccountPaymentAccountIndicator;
     }
 
-    /**
-     * ����shopperAccountPaymentAccountIndicator���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShopperAccountPaymentAccountIndicator(String value) {
-        this.shopperAccountPaymentAccountIndicator = value;
+    public void setShopperAccountPaymentAccountIndicator(String shopperAccountPaymentAccountIndicator) {
+        this.shopperAccountPaymentAccountIndicator = shopperAccountPaymentAccountIndicator;
     }
 
-    /**
-     * ��ȡshopperAccountShippingAddressUsageIndicator���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getShopperAccountShippingAddressUsageIndicator() {
         return shopperAccountShippingAddressUsageIndicator;
     }
 
-    /**
-     * ����shopperAccountShippingAddressUsageIndicator���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShopperAccountShippingAddressUsageIndicator(String value) {
-        this.shopperAccountShippingAddressUsageIndicator = value;
+    public void setShopperAccountShippingAddressUsageIndicator(String shopperAccountShippingAddressUsageIndicator) {
+        this.shopperAccountShippingAddressUsageIndicator = shopperAccountShippingAddressUsageIndicator;
     }
 
-    /**
-     * ��ȡtransactionsAttemptedLastDay���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
     public BigInteger getTransactionsAttemptedLastDay() {
         return transactionsAttemptedLastDay;
     }
 
-    /**
-     * ����transactionsAttemptedLastDay���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setTransactionsAttemptedLastDay(BigInteger value) {
-        this.transactionsAttemptedLastDay = value;
+    public void setTransactionsAttemptedLastDay(BigInteger transactionsAttemptedLastDay) {
+        this.transactionsAttemptedLastDay = transactionsAttemptedLastDay;
     }
 
-    /**
-     * ��ȡtransactionsAttemptedLastYear���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
     public BigInteger getTransactionsAttemptedLastYear() {
         return transactionsAttemptedLastYear;
     }
 
-    /**
-     * ����transactionsAttemptedLastYear���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setTransactionsAttemptedLastYear(BigInteger value) {
-        this.transactionsAttemptedLastYear = value;
+    public void setTransactionsAttemptedLastYear(BigInteger transactionsAttemptedLastYear) {
+        this.transactionsAttemptedLastYear = transactionsAttemptedLastYear;
     }
-
 }

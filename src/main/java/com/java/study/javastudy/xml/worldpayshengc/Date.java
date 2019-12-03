@@ -8,192 +8,77 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
-import javax.xml.bind.annotation.*;
-import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="dayOfMonth" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="hour" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="minute" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="month" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="second" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="year" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
 @XmlRootElement(name = "date")
 public class Date {
 
     @XmlAttribute(name = "dayOfMonth")
-    protected BigInteger dayOfMonth;
+    private int dayOfMonth;
     @XmlAttribute(name = "hour")
-    protected BigInteger hour;
+    private int hour;
     @XmlAttribute(name = "minute")
-    protected BigInteger minute;
+    private int minute;
     @XmlAttribute(name = "month", required = true)
-    protected BigInteger month;
+    private int month;
     @XmlAttribute(name = "second")
-    protected BigInteger second;
+    private int second;
     @XmlAttribute(name = "year", required = true)
-    protected BigInteger year;
+    private int year;
 
-    /**
-     * ��ȡdayOfMonth���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getDayOfMonth() {
+    public int getDayOfMonth() {
         return dayOfMonth;
     }
 
-    /**
-     * ����dayOfMonth���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setDayOfMonth(BigInteger value) {
-        this.dayOfMonth = value;
+    public void setDayOfMonth(int dayOfMonth) {
+        this.dayOfMonth = dayOfMonth;
     }
 
-    /**
-     * ��ȡhour���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getHour() {
+    public int getHour() {
         return hour;
     }
 
-    /**
-     * ����hour���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setHour(BigInteger value) {
-        this.hour = value;
+    public void setHour(int hour) {
+        this.hour = hour;
     }
 
-    /**
-     * ��ȡminute���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getMinute() {
+    public int getMinute() {
         return minute;
     }
 
-    /**
-     * ����minute���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setMinute(BigInteger value) {
-        this.minute = value;
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 
-    /**
-     * ��ȡmonth���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    /**
-     * ����month���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setMonth(BigInteger value) {
-        this.month = value;
+    public void setMonth(int month) {
+        this.month = month;
     }
 
-    /**
-     * ��ȡsecond���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getSecond() {
+    public int getSecond() {
         return second;
     }
 
-    /**
-     * ����second���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setSecond(BigInteger value) {
-        this.second = value;
+    public void setSecond(int second) {
+        this.second = second;
     }
 
-    /**
-     * ��ȡyear���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getYear() {
+    public int getYear() {
         return year;
     }
 
-    /**
-     * ����year���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setYear(BigInteger value) {
-        this.year = value;
+    public void setYear(int year) {
+        this.year = year;
     }
-
 }

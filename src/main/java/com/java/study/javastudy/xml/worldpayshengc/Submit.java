@@ -8,60 +8,29 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}order"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author 020102
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "order"
-})
 @XmlRootElement(name = "submit")
 public class Submit {
-
-    @XmlElement(required = true)
-    protected Order order;
-
     /**
-     * ��ȡorder���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link Order }
-     *     
+     * 订单信息
      */
+    @XmlElement(required = true)
+    private Order order;
+
     public Order getOrder() {
         return order;
     }
 
-    /**
-     * ����order���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Order }
-     *     
-     */
-    public void setOrder(Order value) {
-        this.order = value;
+    public void setOrder(Order order) {
+        this.order = order;
     }
-
 }

@@ -8,88 +8,43 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}shopperEmailAddress"/>
- *         &lt;element ref="{}browser"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "shopperEmailAddress",
-    "browser"
-})
 @XmlRootElement(name = "shopper")
 public class Shopper {
 
-    @XmlElement(required = true)
-    protected String shopperEmailAddress;
-    @XmlElement(required = true)
-    protected Browser browser;
-
     /**
-     * ��ȡshopperEmailAddress���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 账单联系人电子邮件地址
      */
+    @XmlElement(required = true)
+    private String shopperEmailAddress;
+    /**
+     * 浏览器信息
+     */
+    @XmlElement()
+    private Browser browser;
+
     public String getShopperEmailAddress() {
         return shopperEmailAddress;
     }
 
-    /**
-     * ����shopperEmailAddress���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShopperEmailAddress(String value) {
-        this.shopperEmailAddress = value;
+    public void setShopperEmailAddress(String shopperEmailAddress) {
+        this.shopperEmailAddress = shopperEmailAddress;
     }
 
-    /**
-     * ��ȡbrowser���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link Browser }
-     *     
-     */
     public Browser getBrowser() {
         return browser;
     }
 
-    /**
-     * ����browser���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Browser }
-     *     
-     */
-    public void setBrowser(Browser value) {
-        this.browser = value;
+    public void setBrowser(Browser browser) {
+        this.browser = browser;
     }
-
 }

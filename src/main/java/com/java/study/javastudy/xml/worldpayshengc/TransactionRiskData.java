@@ -11,239 +11,98 @@ package com.java.study.javastudy.xml.worldpayshengc;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.math.BigInteger;
 
 
 /**
- * <p>anonymous complex type�� Java �ࡣ
- * 
- * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}transactionRiskDataGiftCardAmount"/>
- *         &lt;element ref="{}transactionRiskDataPreOrderDate"/>
- *       &lt;/sequence>
- *       &lt;attribute name="deliveryEmailAddress" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       &lt;attribute name="deliveryTimeframe" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       &lt;attribute name="giftCardCount" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="preOrderPurchase" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="reorderingPreviousPurchases" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *       &lt;attribute name="shippingMethod" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author xuyuansheng
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "transactionRiskDataGiftCardAmount",
-    "transactionRiskDataPreOrderDate"
-})
 @XmlRootElement(name = "transactionRiskData")
 public class TransactionRiskData {
 
     @XmlElement(required = true)
-    protected TransactionRiskDataGiftCardAmount transactionRiskDataGiftCardAmount;
+    private TransactionRiskDataGiftCardAmount transactionRiskDataGiftCardAmount;
     @XmlElement(required = true)
-    protected TransactionRiskDataPreOrderDate transactionRiskDataPreOrderDate;
+    private TransactionRiskDataPreOrderDate transactionRiskDataPreOrderDate;
     @XmlAttribute(name = "deliveryEmailAddress", required = true)
     @XmlSchemaType(name = "anySimpleType")
-    protected String deliveryEmailAddress;
+    private String deliveryEmailAddress;
     @XmlAttribute(name = "deliveryTimeframe", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String deliveryTimeframe;
+    private String deliveryTimeframe;
     @XmlAttribute(name = "giftCardCount", required = true)
-    protected BigInteger giftCardCount;
+    private int giftCardCount;
     @XmlAttribute(name = "preOrderPurchase", required = true)
-    protected boolean preOrderPurchase;
+    private boolean preOrderPurchase;
     @XmlAttribute(name = "reorderingPreviousPurchases", required = true)
-    protected boolean reorderingPreviousPurchases;
+    private boolean reorderingPreviousPurchases;
     @XmlAttribute(name = "shippingMethod", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
-    protected String shippingMethod;
+    private String shippingMethod;
 
-    /**
-     * ��ȡtransactionRiskDataGiftCardAmount���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link TransactionRiskDataGiftCardAmount }
-     *     
-     */
     public TransactionRiskDataGiftCardAmount getTransactionRiskDataGiftCardAmount() {
         return transactionRiskDataGiftCardAmount;
     }
 
-    /**
-     * ����transactionRiskDataGiftCardAmount���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TransactionRiskDataGiftCardAmount }
-     *     
-     */
-    public void setTransactionRiskDataGiftCardAmount(TransactionRiskDataGiftCardAmount value) {
-        this.transactionRiskDataGiftCardAmount = value;
+    public void setTransactionRiskDataGiftCardAmount(TransactionRiskDataGiftCardAmount transactionRiskDataGiftCardAmount) {
+        this.transactionRiskDataGiftCardAmount = transactionRiskDataGiftCardAmount;
     }
 
-    /**
-     * ��ȡtransactionRiskDataPreOrderDate���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link TransactionRiskDataPreOrderDate }
-     *     
-     */
     public TransactionRiskDataPreOrderDate getTransactionRiskDataPreOrderDate() {
         return transactionRiskDataPreOrderDate;
     }
 
-    /**
-     * ����transactionRiskDataPreOrderDate���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TransactionRiskDataPreOrderDate }
-     *     
-     */
-    public void setTransactionRiskDataPreOrderDate(TransactionRiskDataPreOrderDate value) {
-        this.transactionRiskDataPreOrderDate = value;
+    public void setTransactionRiskDataPreOrderDate(TransactionRiskDataPreOrderDate transactionRiskDataPreOrderDate) {
+        this.transactionRiskDataPreOrderDate = transactionRiskDataPreOrderDate;
     }
 
-    /**
-     * ��ȡdeliveryEmailAddress���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getDeliveryEmailAddress() {
         return deliveryEmailAddress;
     }
 
-    /**
-     * ����deliveryEmailAddress���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDeliveryEmailAddress(String value) {
-        this.deliveryEmailAddress = value;
+    public void setDeliveryEmailAddress(String deliveryEmailAddress) {
+        this.deliveryEmailAddress = deliveryEmailAddress;
     }
 
-    /**
-     * ��ȡdeliveryTimeframe���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getDeliveryTimeframe() {
         return deliveryTimeframe;
     }
 
-    /**
-     * ����deliveryTimeframe���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDeliveryTimeframe(String value) {
-        this.deliveryTimeframe = value;
+    public void setDeliveryTimeframe(String deliveryTimeframe) {
+        this.deliveryTimeframe = deliveryTimeframe;
     }
 
-    /**
-     * ��ȡgiftCardCount���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getGiftCardCount() {
+    public int getGiftCardCount() {
         return giftCardCount;
     }
 
-    /**
-     * ����giftCardCount���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setGiftCardCount(BigInteger value) {
-        this.giftCardCount = value;
+    public void setGiftCardCount(int giftCardCount) {
+        this.giftCardCount = giftCardCount;
     }
 
-    /**
-     * ��ȡpreOrderPurchase���Ե�ֵ��
-     * 
-     */
     public boolean isPreOrderPurchase() {
         return preOrderPurchase;
     }
 
-    /**
-     * ����preOrderPurchase���Ե�ֵ��
-     * 
-     */
-    public void setPreOrderPurchase(boolean value) {
-        this.preOrderPurchase = value;
+    public void setPreOrderPurchase(boolean preOrderPurchase) {
+        this.preOrderPurchase = preOrderPurchase;
     }
 
-    /**
-     * ��ȡreorderingPreviousPurchases���Ե�ֵ��
-     * 
-     */
     public boolean isReorderingPreviousPurchases() {
         return reorderingPreviousPurchases;
     }
 
-    /**
-     * ����reorderingPreviousPurchases���Ե�ֵ��
-     * 
-     */
-    public void setReorderingPreviousPurchases(boolean value) {
-        this.reorderingPreviousPurchases = value;
+    public void setReorderingPreviousPurchases(boolean reorderingPreviousPurchases) {
+        this.reorderingPreviousPurchases = reorderingPreviousPurchases;
     }
 
-    /**
-     * ��ȡshippingMethod���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getShippingMethod() {
         return shippingMethod;
     }
 
-    /**
-     * ����shippingMethod���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setShippingMethod(String value) {
-        this.shippingMethod = value;
+    public void setShippingMethod(String shippingMethod) {
+        this.shippingMethod = shippingMethod;
     }
-
 }
