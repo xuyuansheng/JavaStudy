@@ -19,22 +19,45 @@ import java.util.stream.Stream;
 
 /**
  * 实体校验工具类
- * @author 020102
+ *
  * @param <T>
+ * @author 020102
  */
 public final class BeanValidateUtil<T> {
-
+    /**
+     * @param defaultValueBean 参数默认值,如果不需要默认值时,请使用另一个构造(T defaultValueBean, boolean ifDefaultValueEnabled)
+     */
     public BeanValidateUtil(T defaultValueBean) {
+        if (Objects.isNull(defaultValueBean)) {
+            throw new IllegalArgumentException("需要校验的类型不能为 null");
+        }
         this.defaultValueBean = defaultValueBean;
     }
 
+    /**
+     * @param defaultValueBean      参数默认值,如果不需要默认值时,ifDefaultValueEnabled=false即可
+     * @param ifDefaultValueEnabled true: 启用默认值 ,false: 不启用默认值对象
+     */
+    public BeanValidateUtil(T defaultValueBean, boolean ifDefaultValueEnabled) {
+        if (Objects.isNull(defaultValueBean)) {
+            throw new IllegalArgumentException("需要校验的类型不能为 null");
+        }
+        this.defaultValueBean = defaultValueBean;
+        this.ifDefaultValueEnabled = ifDefaultValueEnabled;
+    }
+
     private T defaultValueBean;
+    /**
+     * 第一次校验失败时是否赋值默认对象
+     */
+    private boolean ifDefaultValueEnabled = true;
 
     /**
      * 校验
-     * @param bean 需要校验的bean
+     *
+     * @param bean   需要校验的bean
      * @param groups 分组
-     * @return 校验不通过,则返回不符合条件的字段,通过则返回null
+     * @return 校验不通过, 则返回不符合条件的字段, 通过则返回null
      */
     public String validate(T bean, Class<?>... groups) {
         // 校验null
@@ -47,7 +70,7 @@ public final class BeanValidateUtil<T> {
         // 获取验证器
         Validator validator = validatorFactory.getValidator();
         // 执行验证
-        Set<ConstraintViolation<T>> validateSet = validator.validate(bean,groups);
+        Set<ConstraintViolation<T>> validateSet = validator.validate(bean, groups);
 
         if (validateSet.size() == 0 || Objects.isNull(defaultValueBean)) {
             return getValidateResultList(validateSet);
@@ -57,7 +80,7 @@ public final class BeanValidateUtil<T> {
         allFields.removeAll(validateSet.stream().map(cn -> cn.getPropertyPath().toString()).collect(Collectors.toList()));
         String[] ignore = allFields.toArray(new String[0]);
         BeanUtils.copyProperties(defaultValueBean, bean, ignore);
-        return getValidateResultList(validator.validate(bean,groups));
+        return getValidateResultList(validator.validate(bean, groups));
     }
 
     /**
@@ -91,6 +114,7 @@ public final class BeanValidateUtil<T> {
 
     /**
      * 转换类型
+     *
      * @param validate 校验的结果
      * @return 转换后的结果
      */
@@ -103,6 +127,7 @@ public final class BeanValidateUtil<T> {
 
     /**
      * 获取bean为null时的校验结果
+     *
      * @return
      */
     private String getNullValidateResultList() {
