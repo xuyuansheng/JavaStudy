@@ -24,12 +24,6 @@ import java.util.stream.Stream;
  */
 public final class BeanValidateUtil<T> {
 
-    /**
-     * 私有化构造方法
-     */
-    private BeanValidateUtil() {
-    }
-
     public BeanValidateUtil(T defaultValueBean) {
         this.defaultValueBean = defaultValueBean;
     }
@@ -63,7 +57,7 @@ public final class BeanValidateUtil<T> {
         allFields.removeAll(validateSet.stream().map(cn -> cn.getPropertyPath().toString()).collect(Collectors.toList()));
         String[] ignore = allFields.toArray(new String[0]);
         BeanUtils.copyProperties(defaultValueBean, bean, ignore);
-        return getValidateResultList(validator.validate(bean));
+        return getValidateResultList(validator.validate(bean,groups));
     }
 
     /**
