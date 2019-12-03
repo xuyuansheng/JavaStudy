@@ -20,12 +20,19 @@ public class ParamsTest {
 
     public static void main(String[] args) {
 
-        BeanValidateUtil<ParamsTest> beanValidateUtil = new BeanValidateUtil<>(new ParamsTest().setParamsOther(new ParamsOther().setInte(2)));
+        BeanValidateUtil<ParamsTest> beanValidateUtil = new BeanValidateUtil<>(new ParamsTest().setParamsOther(new ParamsOther().setParamsOtherTwo(new ParamsOtherTwo().setBool(false).setInte(3).setStr("twoStr").setIsBool(true).setIsStr("isStr"))));
+
+
+        ParamsOtherTwo paramsOther2 = new ParamsOtherTwo();
+        paramsOther2.setBool(true);
+        paramsOther2.setInte(222);
+        paramsOther2.setStr(null);
 
         ParamsOther paramsOther = new ParamsOther();
         paramsOther.setBool(true);
-        paramsOther.setInte(222);
-        paramsOther.setStr(null);
+        paramsOther.setInte(2);
+        paramsOther.setStr("对的");
+        paramsOther.setParamsOtherTwo(paramsOther2);
 
         ParamsTest paramsTest = new ParamsTest();
         paramsTest.setBool(true);

@@ -3,7 +3,6 @@ package com.java.study.javastudy.jsr303;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,7 +15,7 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 @Accessors(chain = true)
-public class ParamsOther {
+public class ParamsOtherTwo {
 
 
     @NotBlank(message = "str不能为空", groups = {Groups.GroupDefault.class})
@@ -29,8 +28,10 @@ public class ParamsOther {
     @NotNull(message = "bool不能为null", groups = {Groups.GroupDefault.class, Groups.GroupSecond.class})
     private Boolean bool;
 
-    @Valid
-    @NotNull(message = "paramsOtherTwo不能为null", groups = {Groups.GroupDefault.class, Groups.GroupSecond.class})
-    private ParamsOtherTwo paramsOtherTwo;
+    @NotBlank(message = "isStr不能为空", groups = {Groups.GroupDefault.class, Groups.GroupSecond.class})
+    private String isStr;
+
+    @NotNull(message = "isBool不能为null", groups = {Groups.GroupDefault.class, Groups.GroupSecond.class})
+    private Boolean isBool;
 
 }

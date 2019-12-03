@@ -3,17 +3,10 @@ package com.java.study.javastudy.jsr303;
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.beans.BeanUtils;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import javax.validation.*;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -76,11 +69,48 @@ public final class BeanValidateUtil<T> {
             return getValidateResultList(validateSet);
         }
 
-        List<String> allFields = getAllFields(bean.getClass()).stream().map(Field::getName).collect(Collectors.toList());
-        allFields.removeAll(validateSet.stream().map(cn -> cn.getPropertyPath().toString()).collect(Collectors.toList()));
-        String[] ignore = allFields.toArray(new String[0]);
-        BeanUtils.copyProperties(defaultValueBean, bean, ignore);
+        deepCopyProperty(validateSet, defaultValueBean, bean);
+
         return getValidateResultList(validator.validate(bean, groups));
+    }
+
+
+    private void deepCopyProperty(Set<ConstraintViolation<T>> validateSet, T defaultValueBean, T bean) {
+
+        validateSet.forEach(k -> {
+            Path propertyPath = k.getPropertyPath();
+            Iterator<Path.Node> ite = propertyPath.iterator();
+            Object defaultValueBeanTemp = defaultValueBean;
+            Object beanTemp = bean;
+            while (ite.hasNext()) {
+                Path.Node next = ite.next();
+                try {
+                    if (ite.hasNext()) {
+                        defaultValueBeanTemp = dynamicGet(defaultValueBeanTemp, next.getName());
+                        beanTemp = dynamicGet(beanTemp, next.getName());
+                    } else {
+                        defaultValueBeanTemp = dynamicGet(defaultValueBeanTemp, next.getName());
+                        dynamicSet(beanTemp, next.getName(), defaultValueBeanTemp);
+                    }
+                } catch (Exception e) {
+                    break;
+                }
+            }
+        });
+    }
+
+
+    private void dynamicSet(Object targetBean, String propertyName, Object qtySum) throws NoSuchFieldException, IllegalAccessException {
+        Field field = targetBean.getClass().getDeclaredField(propertyName);
+        field.setAccessible(true);
+        field.set(targetBean, qtySum);
+    }
+
+    private Object dynamicGet(Object sourceBean, String propertyName) throws NoSuchFieldException, IllegalAccessException {
+        Field field = sourceBean.getClass().getDeclaredField(propertyName);
+        field.setAccessible(true);
+        Object qty = field.get(sourceBean);
+        return qty;
     }
 
     /**
