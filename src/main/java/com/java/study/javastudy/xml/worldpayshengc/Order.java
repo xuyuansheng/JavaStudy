@@ -20,12 +20,12 @@ public class Order {
     /**
      * 您所指定的订单描述
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private String description;
     /**
      * 订单金额的信息
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private Amount amount;
     /**
      * 订单内容 内容要用 <![CDATA[]]>包裹
@@ -35,12 +35,12 @@ public class Order {
     /**
      * 订单详情
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private PaymentDetails paymentDetails;
     /**
      * 购买者信息
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private Shopper shopper;
     /**
      * 风险数据,用来提升授权通过概率或3ds2验证时挑战成功率
@@ -55,7 +55,7 @@ public class Order {
     /**
      * 订单号, 您所指定的订单代码。 理想情况下，后续流程不会超过 20 个
      */
-    @XmlAttribute(name = "orderCode", required = true)
+    @XmlAttribute(name = "orderCode" )
     private String orderCode;
 
     public String getDescription() {

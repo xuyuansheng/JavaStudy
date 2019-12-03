@@ -23,26 +23,20 @@ public class Amount {
     /**
      * 详细说明相关国家的货币 (ISO 4217) 代码。 必须大写
      */
-    @XmlAttribute(name = "currencyCode", required = true)
+    @XmlAttribute(name = "currencyCode")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String currencyCode;
-    /**
-     *
-     */
-    @XmlAttribute(name = "debitCreditIndicator", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    private String debitCreditIndicator;
+
     /**
      * 详细说明应在该值自右起放置小数点或逗号
      */
-    @XmlAttribute(name = "exponent", required = true)
+    @XmlAttribute(name = "exponent")
     private int exponent;
     /**
      * 详细说明买家有望支付的总金额。 最大值 2147483647
      */
-    @XmlAttribute(name = "value", required = true)
+    @XmlAttribute(name = "value")
     private int value;
 
     public String getCurrencyCode() {
@@ -51,14 +45,6 @@ public class Amount {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
-    }
-
-    public String getDebitCreditIndicator() {
-        return debitCreditIndicator;
-    }
-
-    public void setDebitCreditIndicator(String debitCreditIndicator) {
-        this.debitCreditIndicator = debitCreditIndicator;
     }
 
     public int getExponent() {

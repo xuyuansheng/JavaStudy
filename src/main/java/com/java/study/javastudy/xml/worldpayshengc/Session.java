@@ -24,14 +24,14 @@ public class Session {
     /**
      * 每笔交易需要一个唯一的值
      */
-    @XmlAttribute(name = "id", required = true)
+    @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String id;
     /**
      * 客户的IP地址
      */
-    @XmlAttribute(name = "shopperIPAddress", required = true)
+    @XmlAttribute(name = "shopperIPAddress")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NMTOKEN")
     private String shopperIPAddress;

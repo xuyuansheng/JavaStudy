@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "transactionRiskDataPreOrderDate")
 public class TransactionRiskDataPreOrderDate {
 
-    @XmlElement(required = true)
+    @XmlElement
     private Date date;
 
     public Date getDate() {

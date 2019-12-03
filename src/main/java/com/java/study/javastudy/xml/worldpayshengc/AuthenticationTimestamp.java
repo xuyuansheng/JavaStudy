@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "authenticationTimestamp")
 public class AuthenticationTimestamp {
 
-    @XmlElement(required = true)
+    @XmlElement
     private Date date;
 
     public Date getDate() {

@@ -21,47 +21,47 @@ import java.math.BigInteger;
 @XmlRootElement(name = "shopperAccountRiskData")
 public class ShopperAccountRiskData {
 
-    @XmlElement(required = true)
+    @XmlElement()
     private ShopperAccountCreationDate shopperAccountCreationDate;
-    @XmlElement(required = true)
+    @XmlElement()
     private ShopperAccountModificationDate shopperAccountModificationDate;
-    @XmlElement(required = true)
+    @XmlElement()
     private ShopperAccountPasswordChangeDate shopperAccountPasswordChangeDate;
-    @XmlElement(required = true)
+    @XmlElement()
     private ShopperAccountShippingAddressFirstUseDate shopperAccountShippingAddressFirstUseDate;
-    @XmlElement(required = true)
+    @XmlElement()
     private ShopperAccountPaymentAccountFirstUseDate shopperAccountPaymentAccountFirstUseDate;
-    @XmlAttribute(name = "addCardAttemptsLastDay", required = true)
+    @XmlAttribute(name = "addCardAttemptsLastDay")
     private BigInteger addCardAttemptsLastDay;
-    @XmlAttribute(name = "previousSuspiciousActivity", required = true)
+    @XmlAttribute(name = "previousSuspiciousActivity")
     private boolean previousSuspiciousActivity;
-    @XmlAttribute(name = "purchasesCompletedLastSixMonths", required = true)
+    @XmlAttribute(name = "purchasesCompletedLastSixMonths")
     private BigInteger purchasesCompletedLastSixMonths;
-    @XmlAttribute(name = "shippingNameMatchesAccountName", required = true)
+    @XmlAttribute(name = "shippingNameMatchesAccountName")
     private boolean shippingNameMatchesAccountName;
-    @XmlAttribute(name = "shopperAccountAgeIndicator", required = true)
+    @XmlAttribute(name = "shopperAccountAgeIndicator")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String shopperAccountAgeIndicator;
-    @XmlAttribute(name = "shopperAccountChangeIndicator", required = true)
+    @XmlAttribute(name = "shopperAccountChangeIndicator")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String shopperAccountChangeIndicator;
-    @XmlAttribute(name = "shopperAccountPasswordChangeIndicator", required = true)
+    @XmlAttribute(name = "shopperAccountPasswordChangeIndicator")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String shopperAccountPasswordChangeIndicator;
-    @XmlAttribute(name = "shopperAccountPaymentAccountIndicator", required = true)
+    @XmlAttribute(name = "shopperAccountPaymentAccountIndicator")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String shopperAccountPaymentAccountIndicator;
-    @XmlAttribute(name = "shopperAccountShippingAddressUsageIndicator", required = true)
+    @XmlAttribute(name = "shopperAccountShippingAddressUsageIndicator")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String shopperAccountShippingAddressUsageIndicator;
-    @XmlAttribute(name = "transactionsAttemptedLastDay", required = true)
+    @XmlAttribute(name = "transactionsAttemptedLastDay")
     private BigInteger transactionsAttemptedLastDay;
-    @XmlAttribute(name = "transactionsAttemptedLastYear", required = true)
+    @XmlAttribute(name = "transactionsAttemptedLastYear")
     private BigInteger transactionsAttemptedLastYear;
 
     public ShopperAccountCreationDate getShopperAccountCreationDate() {

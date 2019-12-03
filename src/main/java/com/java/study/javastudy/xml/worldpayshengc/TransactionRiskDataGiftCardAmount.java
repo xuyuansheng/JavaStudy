@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "transactionRiskDataGiftCardAmount")
 public class TransactionRiskDataGiftCardAmount {
 
-    @XmlElement(required = true)
+    @XmlElement
     private Amount amount;
 
     public Amount getAmount() {

@@ -22,63 +22,75 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Date {
 
     @XmlAttribute(name = "dayOfMonth")
-    private int dayOfMonth;
+    private Integer dayOfMonth;
     @XmlAttribute(name = "hour")
-    private int hour;
+    private Integer hour;
     @XmlAttribute(name = "minute")
-    private int minute;
+    private Integer minute;
     @XmlAttribute(name = "month", required = true)
-    private int month;
+    private Integer month;
     @XmlAttribute(name = "second")
-    private int second;
+    private Integer second;
     @XmlAttribute(name = "year", required = true)
-    private int year;
+    private Integer year;
 
-    public int getDayOfMonth() {
+    public Date(Integer year, Integer month, Integer hour, Integer minute, Integer second, Integer dayOfMonth) {
+        this.dayOfMonth = dayOfMonth;
+        this.hour = hour;
+        this.minute = minute;
+        this.month = month;
+        this.second = second;
+        this.year = year;
+    }
+
+    public Date() {
+    }
+
+    public Integer getDayOfMonth() {
         return dayOfMonth;
     }
 
-    public void setDayOfMonth(int dayOfMonth) {
+    public void setDayOfMonth(Integer dayOfMonth) {
         this.dayOfMonth = dayOfMonth;
     }
 
-    public int getHour() {
+    public Integer getHour() {
         return hour;
     }
 
-    public void setHour(int hour) {
+    public void setHour(Integer hour) {
         this.hour = hour;
     }
 
-    public int getMinute() {
+    public Integer getMinute() {
         return minute;
     }
 
-    public void setMinute(int minute) {
+    public void setMinute(Integer minute) {
         this.minute = minute;
     }
 
-    public int getMonth() {
+    public Integer getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(Integer month) {
         this.month = month;
     }
 
-    public int getSecond() {
+    public Integer getSecond() {
         return second;
     }
 
-    public void setSecond(int second) {
+    public void setSecond(Integer second) {
         this.second = second;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 }

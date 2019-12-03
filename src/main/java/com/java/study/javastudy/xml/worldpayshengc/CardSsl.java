@@ -23,17 +23,17 @@ public class CardSsl {
     /**
      * 信用卡号、借记卡号、用于支付的卡号、银行账户号码或任何其他适用的银行识别码。以 “4459510002561039” 作为示例
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private String cardNumber;
     /**
      * 这将返回卡的到期日期；但是，仅对于AUTHORIZED状态，并且仅当XML响应（和此元素）中的paymentMethodDetail启用时。与我们联系以启用这些功能
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private ExpiryDate expiryDate;
     /**
      * 卡或帐户上的帐户持有人姓名。 例如“ John Smith”
      */
-    @XmlElement(required = true)
+    @XmlElement()
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NMTOKEN")
     private String cardHolderName;
@@ -41,12 +41,12 @@ public class CardSsl {
      * CVC是打印在信用卡后的额外代码
      * 备注: (worldPay技术微信上回复的解释)
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private String cvc;
     /**
      * 持卡人地址
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private CardAddress cardAddress;
 
     public String getCardNumber() {

@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "authenticationRiskData")
 public class AuthenticationRiskData {
 
-    @XmlElement(required = true)
+    @XmlElement()
     private AuthenticationTimestamp authenticationTimestamp;
-    @XmlAttribute(name = "authenticationMethod", required = true)
+    @XmlAttribute(name = "authenticationMethod" )
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String authenticationMethod;

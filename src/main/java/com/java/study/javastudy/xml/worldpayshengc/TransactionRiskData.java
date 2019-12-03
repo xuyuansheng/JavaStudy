@@ -20,24 +20,24 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlRootElement(name = "transactionRiskData")
 public class TransactionRiskData {
 
-    @XmlElement(required = true)
+    @XmlElement()
     private TransactionRiskDataGiftCardAmount transactionRiskDataGiftCardAmount;
-    @XmlElement(required = true)
+    @XmlElement()
     private TransactionRiskDataPreOrderDate transactionRiskDataPreOrderDate;
-    @XmlAttribute(name = "deliveryEmailAddress", required = true)
+    @XmlAttribute(name = "deliveryEmailAddress")
     @XmlSchemaType(name = "anySimpleType")
     private String deliveryEmailAddress;
-    @XmlAttribute(name = "deliveryTimeframe", required = true)
+    @XmlAttribute(name = "deliveryTimeframe")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String deliveryTimeframe;
-    @XmlAttribute(name = "giftCardCount", required = true)
+    @XmlAttribute(name = "giftCardCount")
     private int giftCardCount;
-    @XmlAttribute(name = "preOrderPurchase", required = true)
+    @XmlAttribute(name = "preOrderPurchase")
     private boolean preOrderPurchase;
-    @XmlAttribute(name = "reorderingPreviousPurchases", required = true)
+    @XmlAttribute(name = "reorderingPreviousPurchases")
     private boolean reorderingPreviousPurchases;
-    @XmlAttribute(name = "shippingMethod", required = true)
+    @XmlAttribute(name = "shippingMethod")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String shippingMethod;

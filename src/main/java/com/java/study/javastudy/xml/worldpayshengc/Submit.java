@@ -23,7 +23,7 @@ public class Submit {
     /**
      * 订单信息
      */
-    @XmlElement(required = true)
+    @XmlElement
     private Order order;
 
     public Order getOrder() {

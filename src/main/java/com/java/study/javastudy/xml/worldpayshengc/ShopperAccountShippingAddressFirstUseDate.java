@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "shopperAccountShippingAddressFirstUseDate")
 public class ShopperAccountShippingAddressFirstUseDate {
 
-    @XmlElement(required = true)
+    @XmlElement
     private Date date;
 
     public Date getDate() {

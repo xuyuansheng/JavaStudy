@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "cardAddress")
 public class CardAddress {
 
-    @XmlElement(required = true)
+    @XmlElement
     private Address address;
 
     public Address getAddress() {

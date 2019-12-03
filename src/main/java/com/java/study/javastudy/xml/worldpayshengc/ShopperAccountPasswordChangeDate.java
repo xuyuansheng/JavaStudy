@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ShopperAccountPasswordChangeDate {
 
 
-    @XmlElement(required = true)
+    @XmlElement
     private Date date;
 
     public Date getDate() {

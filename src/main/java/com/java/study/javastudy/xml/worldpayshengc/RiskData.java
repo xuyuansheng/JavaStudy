@@ -24,17 +24,17 @@ public class RiskData {
     /**
      * 有关购物者以及他们如何通过Worldpay进行身份验证的信息
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private AuthenticationRiskData authenticationRiskData;
     /**
      * 有关您的购物者帐户的信息
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private ShopperAccountRiskData shopperAccountRiskData;
     /**
      * 有关订单的信息。
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private TransactionRiskData transactionRiskData;
 
     public AuthenticationRiskData getAuthenticationRiskData() {

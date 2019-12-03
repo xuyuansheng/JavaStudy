@@ -24,12 +24,12 @@ public class Shopper {
     /**
      * 账单联系人电子邮件地址
      */
-    @XmlElement(required = true)
+    @XmlElement
     private String shopperEmailAddress;
     /**
      * 浏览器信息
      */
-    @XmlElement()
+    @XmlElement
     private Browser browser;
 
     public String getShopperEmailAddress() {

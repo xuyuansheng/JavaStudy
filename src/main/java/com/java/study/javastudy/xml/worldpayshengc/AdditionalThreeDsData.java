@@ -28,7 +28,7 @@ public class AdditionalThreeDsData {
      * challengeRequested - You prefer that a challenge should be performed.(您希望应该执行挑战)
      * challengeMandated - There are local or regional mandates that mean that a challenge must be performed.(有地方或区域性授权要求必须执行挑战)
      */
-    @XmlAttribute(name = "challengePreference", required = true)
+    @XmlAttribute(name = "challengePreference")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String challengePreference;
@@ -42,7 +42,7 @@ public class AdditionalThreeDsData {
      * 500x600
      * 600x400
      */
-    @XmlAttribute(name = "challengeWindowSize", required = true)
+    @XmlAttribute(name = "challengeWindowSize")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NMTOKEN")
     private String challengeWindowSize;
@@ -50,7 +50,7 @@ public class AdditionalThreeDsData {
      * DDC完成后，在JavaScript postMessage中返回的SessionId
      * 即: https://secure-test.worldpay.com/shopper/3ds/ddc.html 接口返回的sessionId
      */
-    @XmlAttribute(name = "dfReferenceId", required = true)
+    @XmlAttribute(name = "dfReferenceId")
     @XmlSchemaType(name = "anySimpleType")
     private String dfReferenceId;
 

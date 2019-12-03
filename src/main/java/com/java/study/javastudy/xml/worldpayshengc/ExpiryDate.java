@@ -24,7 +24,7 @@ public class ExpiryDate {
     /**
      * 过期日期
      */
-    @XmlElement(required = true)
+    @XmlElement
     private Date date;
 
     public Date getDate() {

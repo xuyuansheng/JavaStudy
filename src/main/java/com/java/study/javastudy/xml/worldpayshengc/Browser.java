@@ -23,12 +23,12 @@ public class Browser {
     /**
      * 必须包含与购物者的用户代理发送给您的HTTP用户头完全相同的内容
      */
-    @XmlElement(required = true)
+    @XmlElement
     private String acceptHeader;
     /**
      * 必须包含与购物者的用户代理发送给您的HTTP用户代理头完全相同的内容
      */
-    @XmlElement(required = true)
+    @XmlElement
     private String userAgentHeader;
 
     public String getAcceptHeader() {

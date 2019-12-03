@@ -22,7 +22,7 @@ public class Address {
     /**
      * 帐单联系人地址行1。 除非提供<city>，否则为可选。
      */
-    @XmlElement(required = true)
+    @XmlElement()
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String address1;
@@ -39,19 +39,19 @@ public class Address {
     /**
      * 帐单联系人邮政编码/邮政编码。 例如“ CB4 0WE”
      */
-    @XmlElement(required = true)
+    @XmlElement()
     private String postalCode;
     /**
      * 联系人城市。 除非提供了<address1>，否则为可选。
      */
-    @XmlElement(required = true)
+    @XmlElement()
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String city;
     /**
      * 帐单联系ISO国家/地区代码。必须是大写 有关详细信息，请参见ISO国家/地区代码
      */
-    @XmlElement(required = true)
+    @XmlElement()
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String countryCode;

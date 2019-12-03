@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ShopperAccountCreationDate {
 
 
-    @XmlElement(required = true)
+    @XmlElement
     private Date date;
 
     public Date getDate() {
