@@ -8,6 +8,8 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -20,7 +22,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "cardAddress")
 public class CardAddress {
-
+    @Valid
+    @NotNull(message = "订单详情 Address 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlElement
     private Address address;
 

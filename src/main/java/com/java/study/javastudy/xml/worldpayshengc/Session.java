@@ -1,13 +1,6 @@
-//
-// ���ļ����� JavaTM Architecture for XML Binding (JAXB) ����ʵ�� v2.2.8-b130911.1802 ���ɵ�
-// ����� <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// �����±���Դģʽʱ, �Դ��ļ��������޸Ķ�����ʧ��
-// ����ʱ��: 2019.12.02 ʱ�� 05:29:39 PM GMT+08:00 
-//
-
-
 package com.java.study.javastudy.xml.worldpayshengc;
 
+import javax.validation.constraints.NotBlank;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -24,6 +17,7 @@ public class Session {
     /**
      * 每笔交易需要一个唯一的值
      */
+    @NotBlank(message = "订单详情 SessionId 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
@@ -31,6 +25,7 @@ public class Session {
     /**
      * 客户的IP地址
      */
+    @NotBlank(message = "订单详情 shopperIPAddress 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "shopperIPAddress")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NMTOKEN")

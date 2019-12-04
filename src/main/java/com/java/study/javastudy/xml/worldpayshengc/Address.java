@@ -8,6 +8,7 @@
 
 package com.java.study.javastudy.xml.worldpayshengc;
 
+import javax.validation.constraints.NotBlank;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -22,6 +23,7 @@ public class Address {
     /**
      * 帐单联系人地址行1。 除非提供<city>，否则为可选。
      */
+    @NotBlank(message = "订单详情.帐单联系人地址行1 address1 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentDoAddressValidate.class})
     @XmlElement()
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
@@ -39,11 +41,13 @@ public class Address {
     /**
      * 帐单联系人邮政编码/邮政编码。 例如“ CB4 0WE”
      */
+    @NotBlank(message = "订单详情 postalCode 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlElement()
     private String postalCode;
     /**
      * 联系人城市。 除非提供了<address1>，否则为可选。
      */
+    @NotBlank(message = "订单详情联系人城市 city 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentDoAddressValidate.class})
     @XmlElement()
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
@@ -51,6 +55,7 @@ public class Address {
     /**
      * 帐单联系ISO国家/地区代码。必须是大写 有关详细信息，请参见ISO国家/地区代码
      */
+    @NotBlank(message = "订单详情 countryCode 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlElement()
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")

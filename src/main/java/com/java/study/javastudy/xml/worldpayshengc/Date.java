@@ -1,13 +1,6 @@
-//
-// ���ļ����� JavaTM Architecture for XML Binding (JAXB) ����ʵ�� v2.2.8-b130911.1802 ���ɵ�
-// ����� <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// �����±���Դģʽʱ, �Դ��ļ��������޸Ķ�����ʧ��
-// ����ʱ��: 2019.12.02 ʱ�� 05:29:39 PM GMT+08:00 
-//
-
-
 package com.java.study.javastudy.xml.worldpayshengc;
 
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -23,14 +16,21 @@ public class Date {
 
     @XmlAttribute(name = "dayOfMonth")
     private Integer dayOfMonth;
+
     @XmlAttribute(name = "hour")
     private Integer hour;
+
     @XmlAttribute(name = "minute")
     private Integer minute;
+
+    @NotNull(message = "订单详情 ExpiryDate.month 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "month", required = true)
     private Integer month;
+
     @XmlAttribute(name = "second")
     private Integer second;
+
+    @NotNull(message = "订单详情 ExpiryDate.year 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "year", required = true)
     private Integer year;
 

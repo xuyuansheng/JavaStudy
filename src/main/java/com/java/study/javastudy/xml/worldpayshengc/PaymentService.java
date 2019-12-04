@@ -1,13 +1,8 @@
-//
-// ���ļ����� JavaTM Architecture for XML Binding (JAXB) ����ʵ�� v2.2.8-b130911.1802 ���ɵ�
-// ����� <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// �����±���Դģʽʱ, �Դ��ļ��������޸Ķ�����ʧ��
-// ����ʱ��: 2019.12.02 ʱ�� 05:29:39 PM GMT+08:00 
-//
-
-
 package com.java.study.javastudy.xml.worldpayshengc;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -22,20 +17,24 @@ public class PaymentService {
     /**
      * 提交的信息
      */
+    @Valid
+    @NotNull(message = "提交的信息 Submit 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlElement()
     private Submit submit;
     /**
      * 商户代码
      */
+    @NotBlank(message = "商户代码不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "merchantCode")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     private String merchantCode;
     /**
-     * 版本号
+     * 版本号,默认为1.4
      */
+    @NotBlank(message = "版本号 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "version")
-    private String version;
+    private String version = "1.4";
 
     public Submit getSubmit() {
         return submit;

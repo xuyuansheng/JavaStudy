@@ -1,13 +1,7 @@
-//
-// ���ļ����� JavaTM Architecture for XML Binding (JAXB) ����ʵ�� v2.2.8-b130911.1802 ���ɵ�
-// ����� <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// �����±���Դģʽʱ, �Դ��ļ��������޸Ķ�����ʧ��
-// ����ʱ��: 2019.12.02 ʱ�� 05:29:39 PM GMT+08:00 
-//
-
-
 package com.java.study.javastudy.xml.worldpayshengc;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -24,11 +18,15 @@ public class PaymentDetails {
     /**
      * 信用卡号、借记卡号、用于支付的卡号、银行账户号码或任何其他适用的银行识别码。以 “4459510002561039” 作为示例
      */
+    @Valid
+    @NotNull(message = "订单详情 CardSsl 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlElement(name = "CARD-SSL" )
     private CardSsl cardssl;
     /**
      * 用户ip 和 id  (Session id must be unique)
      */
+    @Valid
+    @NotNull(message = "订单详情 Session 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlElement()
     private Session session;
 

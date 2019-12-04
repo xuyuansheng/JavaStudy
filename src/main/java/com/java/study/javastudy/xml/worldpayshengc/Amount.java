@@ -1,13 +1,8 @@
-//
-// ���ļ����� JavaTM Architecture for XML Binding (JAXB) ����ʵ�� v2.2.8-b130911.1802 ���ɵ�
-// ����� <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// �����±���Դģʽʱ, �Դ��ļ��������޸Ķ�����ʧ��
-// ����ʱ��: 2019.12.02 ʱ�� 05:29:39 PM GMT+08:00 
-//
-
-
 package com.java.study.javastudy.xml.worldpayshengc;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -23,6 +18,7 @@ public class Amount {
     /**
      * 详细说明相关国家的货币 (ISO 4217) 代码。 必须大写
      */
+    @NotBlank(message = "货币代码 currencyCode 不能为 null", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "currencyCode")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
@@ -36,6 +32,8 @@ public class Amount {
     /**
      * 详细说明买家有望支付的总金额。 最大值 2147483647
      */
+    @DecimalMax(value = "2147483647",message = "支付的总金额不能超过范围", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
+    @DecimalMin(value = "0",message = "支付的总金额不能超过范围", groups = {WorldPayParamsValidateGroups.InitPaymentValidate.class})
     @XmlAttribute(name = "value")
     private int value;
 
