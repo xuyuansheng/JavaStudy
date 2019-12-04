@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 /**
  * 实体校验工具类
  *
- * @param <T>
+ * @param <T>  泛型,防止默认值的对象和被校验的对象不是同一个类型
  * @author 020102
  */
 public final class BeanValidateUtil<T> {

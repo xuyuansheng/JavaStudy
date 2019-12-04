@@ -21,6 +21,7 @@ public class ParamsTest {
     public static void main(String[] args) {
 
         BeanValidateUtil<ParamsTest> beanValidateUtil = new BeanValidateUtil<>(new ParamsTest().setParamsOther(new ParamsOther().setParamsOtherTwo(new ParamsOtherTwo().setBool(false).setInte(3).setStr("twoStr").setIsBool(true).setIsStr("isStr"))));
+        beanValidateUtil = new BeanValidateUtil<>(new ParamsTest(),false);
 
 
         ParamsOtherTwo paramsOther2 = new ParamsOtherTwo();
@@ -40,7 +41,7 @@ public class ParamsTest {
         paramsTest.setStr("ba");
         paramsTest.setParamsOther(paramsOther);
 
-        String result = beanValidateUtil.validate(paramsTest,Groups.GroupSecond.class,Groups.GroupDefault.class);
+        String result = beanValidateUtil.validate(paramsTest, Groups.GroupSecond.class, Groups.GroupDefault.class);
         System.out.println(result);
     }
 
