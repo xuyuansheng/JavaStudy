@@ -1,4 +1,4 @@
-package com.java.study.javastudy.jsr303;
+package com.java.study.javastudy.jsr303.util;
 
 import com.alibaba.fastjson.JSON;
 import lombok.Data;

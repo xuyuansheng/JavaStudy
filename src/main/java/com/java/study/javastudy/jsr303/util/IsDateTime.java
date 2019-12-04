@@ -1,4 +1,4 @@
-package com.java.study.javastudy.jsr303;
+package com.java.study.javastudy.jsr303.util;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

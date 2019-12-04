@@ -1,5 +1,6 @@
 package com.java.study.javastudy.jsr303;
 
+import com.java.study.javastudy.jsr303.util.BeanValidateUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

@@ -1,4 +1,6 @@
-package com.java.study.javastudy.jsr303;
+package com.java.study.javastudy.jsr303.util;
+
+import com.java.study.javastudy.jsr303.util.IsDateTime;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
