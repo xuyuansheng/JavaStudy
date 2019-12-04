@@ -114,21 +114,6 @@ public final class BeanValidateUtil<T> {
     }
 
     /**
-     * 获取所有的字段.包括public,private,protected,和父类的
-     *
-     * @param clazz 目标类的class
-     * @return 返回所有的字段
-     */
-    private List<Field> getAllFields(Class<?> clazz) {
-        List<Field> fields = Stream.of(clazz.getDeclaredFields()).collect(Collectors.toList());
-        if (clazz.getSuperclass() != null) {
-            List<Field> superFields = getAllFields(clazz.getSuperclass());
-            fields.addAll(superFields);
-        }
-        return fields;
-    }
-
-    /**
      * 获取结果
      *
      * @param validateSet 不符合的字段
