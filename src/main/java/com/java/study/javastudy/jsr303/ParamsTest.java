@@ -1,6 +1,7 @@
 package com.java.study.javastudy.jsr303;
 
 import com.java.study.javastudy.jsr303.util.BeanValidateUtil;
+import com.java.study.javastudy.jsr303.util.IsDateTime;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -21,8 +22,18 @@ public class ParamsTest {
 
     public static void main(String[] args) {
 
-        BeanValidateUtil<ParamsTest> beanValidateUtil = new BeanValidateUtil<>(new ParamsTest().setParamsOther(new ParamsOther().setParamsOtherTwo(new ParamsOtherTwo().setBool(false).setInte(3).setStr("twoStr").setIsBool(true).setIsStr("isStr"))));
-        beanValidateUtil = new BeanValidateUtil<>(new ParamsTest(),false);
+        ParamsTest defaultBean = new ParamsTest()
+                .setParamsOther(new ParamsOther()
+                        .setParamsOtherTwo(new ParamsOtherTwo()
+                                .setBool(false)
+                                .setInte(3)
+                                .setStr("twoStr")
+                                .setIsBool(true)
+                                .setIsStr("isStr")));
+        /*  校验工具类 */
+        BeanValidateUtil<ParamsTest> beanValidateUtil = new BeanValidateUtil<>(defaultBean);
+
+//        beanValidateUtil = new BeanValidateUtil<>(new ParamsTest(),false);
 
 
         ParamsOtherTwo paramsOther2 = new ParamsOtherTwo();
@@ -41,8 +52,9 @@ public class ParamsTest {
         paramsTest.setInte(2);
         paramsTest.setStr("ba");
         paramsTest.setParamsOther(paramsOther);
+        paramsTest.setIfData("2013-12-12");
 
-        String result = beanValidateUtil.validate(paramsTest, Groups.GroupSecond.class, Groups.GroupDefault.class);
+        String result = beanValidateUtil.validate(paramsTest);
         System.out.println(result);
     }
 
@@ -56,6 +68,8 @@ public class ParamsTest {
     @NotNull(message = "bool不能为null", groups = {Groups.GroupDefault.class, Groups.GroupSecond.class})
     private Boolean bool;
 
+    @IsDateTime(dateOrTime = 1,message = "这不是个日期呀",formatPattern = "yyyy-MM-dd",isContainDetail = true)
+    private String  ifData;
 
     @Valid
     @NotNull(message = "paramsOther不能为null", groups = {Groups.GroupDefault.class, Groups.GroupSecond.class})
