@@ -1,3 +1,29 @@
 server:
   port: 8081
 name: application-dev.yml
+
+
+spring:
+  dynamic:
+    datasource:
+      default-data-source: master
+      show-selected-source: false
+
+master:
+  spring:
+    datasource:
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.1.4:3306/db01
+
+slave:
+  spring:
+    datasource:
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.1.4:3307/db02
+mybatis:
+  configuration:
+    default-statement-timeout: 1111

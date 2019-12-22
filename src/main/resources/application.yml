@@ -2,5 +2,5 @@ server:
   port: 80
 spring:
   profiles:
-  active: dev
+    active: dev
 name: application.yml
