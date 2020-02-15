@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("apolloTestController")
 public class ApolloTestController {
-    @ApolloConfig()
+    @ApolloConfig("myName")
     public Config apolloConfig;
 
     @Autowired

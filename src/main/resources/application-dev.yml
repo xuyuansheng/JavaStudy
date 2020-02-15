@@ -7,6 +7,7 @@ apollo:
   cluster: cluster-a
   bootstrap :
    enabled : true
+   namespaces: customer,application
 
 spring:
   dynamic:
