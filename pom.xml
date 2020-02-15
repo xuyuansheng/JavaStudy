@@ -26,6 +26,12 @@
     </properties>
 
     <dependencies>
+        <!--com.ctrip.framework.apollo-->
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-client</artifactId>
+            <version>1.5.1</version>
+        </dependency>
         <!--demo-spring-boot-starter-->
         <dependency>
             <groupId>com.xuyuansheng</groupId>

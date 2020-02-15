@@ -2,6 +2,11 @@ server:
   port: 8081
 name: application-dev.yml
 
+#目前是本地模式 在C:\opt\settings/server.properties中配置
+apollo:
+  cluster: cluster-a
+  bootstrap :
+   enabled : true
 
 spring:
   dynamic:
