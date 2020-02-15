@@ -3,46 +3,100 @@ package com.java.study.javastudy;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonArray;
-import com.java.study.javastudy.annotations.MyMethodLog;
-import com.java.study.javastudy.controller.JavaJarRelyOnBean;
-import io.github.yedaxia.apidocs.Docs;
-import io.github.yedaxia.apidocs.DocsConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.*;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.*;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SimpleTest {
 
-    @Test
-    public void testStringUtils() throws Exception {
 
-        short s0=(short)15;
-        short s1=5;
+    @Test
+    public void test() throws IOException {
+
+        String s = JSON.parseObject(null, String.class);
+        System.out.println(s);
+
+
+    }
+
+
+    @Test
+    public void testBinary() {
+
+        String hahei = "哈黑";
+        byte[] ha = hahei.getBytes(StandardCharsets.UTF_8);
+        char[] chars = hahei.toCharArray();
+
+        byte[] resultC = new byte[3];
+
+
+        for (int i = 0; i < chars.length; i++) {
+            char aChar = chars[i];
+            Long aLong = Long.valueOf(aChar);
+            int j = 0;
+            resultC[j++] = (byte) (224 | aChar >> 12);
+            resultC[j++] = (byte) (128 | aChar >> 6 & 63);
+            resultC[j++] = (byte) (128 | aChar & 63);
+            System.out.println(aChar + "  " + aLong);
+        }
+
+        /*  utf8的中文字符编码范围 */
+        int index = 0x4e00;
+        int size = 0x9fa5;
+        for (int i = index; i < size; i++) {
+            char c = (char) i;
+            System.out.println(c + "  " + i);
+        }
+
+        /*  十进制转换为二进制 */
+        for (int i = 99; i < 166; i++) {
+            String s = Integer.toBinaryString(i);
+            int ys = i % 2;
+            int ss = i / 2;
+            StringBuffer resultBinary = new StringBuffer().append(ys);
+            while (ss > 0) {
+                ys = ss % 2;
+                ss = ss / 2;
+                resultBinary.insert(0, ys);
+            }
+            System.out.println(String.format("%s==%s", s, resultBinary));
+        }
+
+    }
+
+
+    @Test
+    public void testBase64() throws Exception {
+
+        byte[] ha_encode = Base64.getEncoder().encode("abcdefghij".getBytes());
+        byte[] ha_decode = Base64.getDecoder().decode(ha_encode);
+        String ha_string = new String(ha_decode);
+        String encode = Base64.getEncoder().encodeToString("abcdefghi".getBytes());
+        short s0 = (short) 15;
+        short s1 = 5;
 //        throw new StreamCorruptedException(
 //                String.format("invalid stream header: %04X%04X", s0, s1));
         String a = String.format("invalid stream header: %04X%04X", s0, s1);
         System.out.println(a);
     }
 
+
     @Test
     public void testReadTxt() throws IOException {
 
         FileInputStream file = new FileInputStream(new File("C:\\Users\\xuyuansheng\\Desktop\\maven-tag.txt"));
         BufferedReader reader = new BufferedReader(new InputStreamReader(file));
-        String  line =null;
-        StringBuffer stringBuffer=new StringBuffer();
-        while ((line=reader.readLine())!=null){
-            String str = StringUtils.replacePattern(line, "<.*/>", line.trim()+"content"+line.trim());
+        String line = null;
+        StringBuffer stringBuffer = new StringBuffer();
+        while ((line = reader.readLine()) != null) {
+            String str = StringUtils.replacePattern(line, "<.*/>", line.trim() + "content" + line.trim());
             stringBuffer.append(str).append("\n");
         }
         String a = stringBuffer.toString();
@@ -51,23 +105,6 @@ public class SimpleTest {
     @Test
     public void testAnno() throws NoSuchMethodException {
 
-        RequestMapping map = JavaJarRelyOnBean.class.getAnnotation(RequestMapping.class);
-        String[] value = map.value();
-        String[] path = map.path();
-        String name = map.name();
-
-        Method test1M = JavaJarRelyOnBean.class.getDeclaredMethod("test1", String.class, Integer.class);
-        boolean f1 = test1M.isAnnotationPresent(MyMethodLog.class);
-        RequestParam ano1 = test1M.getDeclaredAnnotation(RequestParam.class);
-        Parameter[] par = test1M.getParameters();
-        for (Parameter p :
-                par) {
-            Annotation[] annos = p.getAnnotations();
-            AnnotatedType anoot = p.getAnnotatedType();
-            Type paT = p.getParameterizedType();
-            System.out.println(annos);
-        }
-        System.out.println("");
 
     }
 
@@ -171,10 +208,7 @@ public class SimpleTest {
 
     @Test
     public void apiGetTest() {
-        /** api 生成工具测试方法 */
-        DocsConfig config = new DocsConfig();
-        config.setProjectPath("D:\\JavaWorkSpace\\JavaStudy");
-        Docs.buildHtmlDocs(config);
+
     }
 
     @Test
@@ -207,19 +241,6 @@ public class SimpleTest {
             bufferedWriter.newLine();
         }
         bufferedWriter.flush();
-    }
-
-    @Test
-    public void test() throws IOException {
-
-        SimpleTestInterface proxyClass = (SimpleTestInterface) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), new Class[]{SimpleTestInterface.class}, new MyMethodImpl(new SimpleTestInterfaceImpl()));
-        proxyClass.my("参数1", "参数2", "参数3", "参数2");
-        System.out.println("====================================================");
-        proxyClass.my2("参数1", "参数2", "参数3", "参数2");
-        System.out.println("====================================================");
-        proxyClass.noAnno("参数1", "参数2", "参数3", "参数2");
-
-
     }
 
 

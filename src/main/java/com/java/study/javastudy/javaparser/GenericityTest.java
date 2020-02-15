@@ -1,6 +1,5 @@
 package com.java.study.javastudy.javaparser;
 
-import com.java.study.javastudy.controller.JavaJarRelyOnBean;
 import org.junit.Test;
 
 import java.lang.reflect.GenericArrayType;
@@ -10,7 +9,6 @@ import java.lang.reflect.TypeVariable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Stream;
 
 /**
  * @program: java-study
@@ -41,13 +39,6 @@ public class GenericityTest<T, A> {
     @Test
     public void test() throws NoSuchMethodException {
 
-        Type gtype = JavaJarRelyOnBean.class.getMethod("test3").getGenericReturnType();
-        Class<?> type = JavaJarRelyOnBean.class.getMethod("test3").getReturnType();
-
-        Stream.of(GenericityTest.class.getDeclaredFields())
-                .forEach(field -> {
-                    System.out.println(field.getName() + " " + print(field.getGenericType()));
-                });
 
     }
 
