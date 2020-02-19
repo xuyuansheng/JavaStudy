@@ -4,7 +4,10 @@ package com.java.study.javastudy;
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonArray;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.URL;
@@ -18,10 +21,15 @@ public class SimpleTest {
 
 
     @Test
-    public void test() throws IOException {
 
-        String s = JSON.parseObject(null, String.class);
-        System.out.println(s);
+    public void test() throws Exception {
+
+        Logger logger = LoggerFactory.getLogger(SimpleTest.class);
+        logger.debug("debug");
+        logger.error("error");
+        logger.info("info");
+        logger.trace("trace");
+        logger.warn("warn");
 
 
     }

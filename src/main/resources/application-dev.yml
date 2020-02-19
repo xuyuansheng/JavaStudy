@@ -33,3 +33,6 @@ slave:
 mybatis:
   configuration:
     default-statement-timeout: 1111
+
+logging:
+  config: classpath:log4j2.xml
