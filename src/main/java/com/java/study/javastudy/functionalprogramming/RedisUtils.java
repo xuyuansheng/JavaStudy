@@ -15,7 +15,7 @@ public class RedisUtils {
 
     public static void main(String[] args) {
         String stringResult = RedisUtils.getFromRedisOrByFunctional("key", new TypeReference<String>() {
-        }, 1L, TimeUnit.HOURS, () -> "", (t) -> false);
+        }, 1L, TimeUnit.HOURS, () -> "", (r) -> false);
 
     }
 
