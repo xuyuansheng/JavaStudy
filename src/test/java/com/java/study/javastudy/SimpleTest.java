@@ -8,11 +8,14 @@ import org.apache.logging.log4j.LogManager;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.DigestUtils;
 
 import java.io.*;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,14 +27,18 @@ public class SimpleTest {
 
     public void test() throws Exception {
 
-        Logger logger = LoggerFactory.getLogger(SimpleTest.class);
-        logger.debug("debug");
-        logger.error("error");
-        logger.info("info");
-        logger.trace("trace");
-        logger.warn("warn");
+        LocalDateTime start = LocalDateTime.parse("2020-02-03T10:22:33");
+        LocalDateTime parse = LocalDateTime.parse("2070-02-03T10:22:33");
+        long epochMilli_start = start.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+        long epochMilli_parse = parse.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+        long milli_diff = epochMilli_parse - epochMilli_start;
+        System.out.println(milli_diff);
+        System.out.println(Long.toBinaryString(milli_diff));
+        long max = milli_diff << 22;
+        System.out.println(Long.toBinaryString(max));
 
-
+        System.out.println(parse.toEpochSecond(ZoneOffset.of("+8")));
+        System.out.println();
     }
 
 
