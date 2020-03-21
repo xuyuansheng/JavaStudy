@@ -36,3 +36,5 @@ mybatis:
 
 logging:
   config: classpath:log4j2.xml
+  level:
+    org.springframework.web: trace
