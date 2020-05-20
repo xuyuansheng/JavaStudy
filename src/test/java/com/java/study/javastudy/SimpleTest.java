@@ -4,18 +4,12 @@ package com.java.study.javastudy;
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonArray;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.util.DigestUtils;
 
 import java.io.*;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,22 +17,18 @@ import java.util.stream.Stream;
 public class SimpleTest {
 
 
-    @Test
+    public static void main(String[] args) {
 
+    }
+
+
+
+    @Test
     public void test() throws Exception {
 
-        LocalDateTime start = LocalDateTime.parse("2020-02-03T10:22:33");
-        LocalDateTime parse = LocalDateTime.parse("2070-02-03T10:22:33");
-        long epochMilli_start = start.toInstant(ZoneOffset.of("+8")).toEpochMilli();
-        long epochMilli_parse = parse.toInstant(ZoneOffset.of("+8")).toEpochMilli();
-        long milli_diff = epochMilli_parse - epochMilli_start;
-        System.out.println(milli_diff);
-        System.out.println(Long.toBinaryString(milli_diff));
-        long max = milli_diff << 22;
-        System.out.println(Long.toBinaryString(max));
-
-        System.out.println(parse.toEpochSecond(ZoneOffset.of("+8")));
-        System.out.println();
+        for (int i = 0; ; ) {
+            Thread.sleep(10);
+        }
     }
 
 
@@ -124,47 +114,6 @@ public class SimpleTest {
     }
 
 
-    public static void main(String[] args) {
-        Set set = new HashSet();
-        System.out.println("BootstrapClassLoader 的加载路径: ");
-
-        //String[] bootUrls = System.getProperty("sun.boot.class.path").split(";");
-
-        URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
-        set.addAll(Stream.of(urls).collect(Collectors.toList()));
-        for (URL url : urls)
-            System.out.println(url);
-
-        System.out.println("----------------------------");
-
-        //取得扩展类加载器
-        URLClassLoader extClassLoader = (URLClassLoader) ClassLoader.getSystemClassLoader().getParent();
-
-        System.out.println(extClassLoader);
-        System.out.println("扩展类加载器 的加载路径: ");
-
-        urls = extClassLoader.getURLs();
-        set.addAll(Stream.of(urls).collect(Collectors.toList()));
-        for (URL url : urls)
-            System.out.println(url);
-
-        System.out.println("----------------------------");
-
-
-        //取得应用(系统)类加载器
-        URLClassLoader appClassLoader = (URLClassLoader) ClassLoader.getSystemClassLoader();
-
-        System.out.println(appClassLoader);
-        System.out.println("应用(系统)类加载器 的加载路径: ");
-
-        urls = appClassLoader.getURLs();
-        set.addAll(Stream.of(urls).collect(Collectors.toList()));
-        for (URL url : urls)
-            System.out.println(url);
-
-        System.out.println("----------------------------");
-        System.out.println(JSON.toJSONString(set));
-    }
 
 
     @Test

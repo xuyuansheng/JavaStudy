@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author xuyuansheng
  */
 @SpringBootApplication
-@MapperScan("com.java.study.javastudy.mybatis")
+@MapperScan("com.java.study.javastudy.orm.mybatis")
 public class JavaStudyApplication {
 
     public static void main(String[] args) {

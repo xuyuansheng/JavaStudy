@@ -1,0 +1,15 @@
+package com.java.study.javastudy.jdk.annotations;
+
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface MyMethodLog {
+
+    String logString() default "";
+
+}
