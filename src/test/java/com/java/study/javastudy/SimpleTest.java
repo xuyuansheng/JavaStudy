@@ -7,28 +7,53 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.io.*;
-import java.net.URL;
-import java.net.URLClassLoader;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyStore;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SimpleTest {
 
-
-    public static void main(String[] args) {
-
-    }
-
-
-
     @Test
     public void test() throws Exception {
 
-        for (int i = 0; ; ) {
-            Thread.sleep(10);
+        System.out.println(decodeString("3[a]2[bc]"));
+    }
+
+    public String decodeString(String s) {
+        /*  s = "3[a]2[bc]"  "ab3[a2[c]a2[c]]"  [ 91 , ] 93 */
+        return getString(s, 0);
+    }
+
+
+    String getString(String s, int start) {
+
+        /*  s = "3[a]2[bc]"  "ab3[a2[c]a2[c]]"  [ 91 , ] 93 */
+        StringBuilder tempStr = new StringBuilder();
+        StringBuilder tempDigit = new StringBuilder();
+        for (int i = start; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                tempDigit.append(c);
+            } else if (Character.isAlphabetic(c)) {
+                tempStr.append(c);
+            } else if ('[' == c) {
+                String string = getString(s, i + 1);
+                String buildStr = Stream.generate(() -> string).limit(Integer.parseInt(tempDigit.toString())).collect(Collectors.joining());
+                tempStr.append(buildStr);
+            } else if (']' == c) {
+                if (tempDigit.length() == 0) {
+                    return tempStr.toString();
+                }
+                tempDigit.setLength(0);
+            }
         }
+
+        return tempStr.toString();
     }
 
 
@@ -107,14 +132,6 @@ public class SimpleTest {
         String a = stringBuffer.toString();
     }
 
-    @Test
-    public void testAnno() throws NoSuchMethodException {
-
-
-    }
-
-
-
 
     @Test
     public void regPattern() {
@@ -135,77 +152,5 @@ public class SimpleTest {
 
         System.out.println(23 / 4);
     }
-
-
-    public int lengthOfLongestSubstring2(String s) {
-        int n = s.length(), ans = 0;
-        Map<Character, Integer> map = new HashMap<>(); // current index of character
-        // try to extend the range [i, j]
-        for (int j = 0, i = 0; j < n; j++) {
-            if (map.containsKey(s.charAt(j))) {
-                Integer k = map.get(s.charAt(j));
-                i = Math.max(k, i);
-            }
-            ans = Math.max(ans, j - i + 1);
-            map.put(s.charAt(j), j + 1);
-        }
-        return ans;
-    }
-
-
-    public int lengthOfLongestSubstring(String s) {
-        char[] array = Optional.ofNullable(s).orElse("").toCharArray();
-        int length = 0;
-        LinkedList<Character> list = new LinkedList<>();
-        for (int i = 0; i < array.length; i++) {
-            if (!list.contains(array[i])) {
-                list.add(array[i]);
-            } else {
-                length = list.size() > length ? list.size() : length;
-                while (!list.remove().equals(array[i])) {
-                }
-                list.add(array[i]);
-            }
-        }
-        return list.size() > length ? list.size() : length;
-    }
-
-    @Test
-    public void apiGetTest() {
-
-    }
-
-    @Test
-    public void decode() {
-        byte[] decode = Base64.getDecoder().decode("adas");
-        byte[] encode = Base64.getEncoder().encode("abs".getBytes());
-        System.out.println(new String(decode));
-        System.out.println(new String(encode));
-        byte[] decode2 = Base64.getDecoder().decode(encode);
-        System.out.println(new String(decode2));
-
-    }
-
-
-    //    @Test
-    public void contextLoads() throws IOException {
-        File file = new File("e://debug_s24.log");
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("e://debug_s24.log"));
-        String str = null;
-        while ((str = bufferedReader.readLine()) != null) {
-            str = bufferedReader.readLine();
-//            System.out.println(str);
-            String newStr = str.substring((str.indexOf("新文件名：") + 5), (str.indexOf(",压缩图片名"))) + "====" + str.substring((str.indexOf(",压缩图片名") + 7));
-//            System.out.print(str.substring((str.indexOf("新文件名：")+5),(str.indexOf(",压缩图片名"))));
-//            System.out.println("===="+str.substring((str.indexOf(",压缩图片名")+7)));
-            System.out.println(newStr);
-            bufferedWriter.write(newStr);
-            bufferedWriter.newLine();
-        }
-        bufferedWriter.flush();
-    }
-
 
 }

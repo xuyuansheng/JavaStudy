@@ -5,15 +5,21 @@ name: application-dev.yml
 #目前是本地模式 在C:\opt\settings/server.properties中配置
 apollo:
   cluster: cluster-a
-  bootstrap :
-   enabled : true
-   namespaces: customer,application
+  bootstrap:
+    enabled: true
+    namespaces: customer,application
 
 spring:
   dynamic:
     datasource:
       default-data-source: master
       show-selected-source: false
+  redis:
+    database: 0
+    host: 192.168.0.116
+    port: 6379
+
+
 
 master:
   spring:
@@ -38,3 +44,9 @@ logging:
   config: classpath:log4j2.xml
   level:
     org.springframework.web: trace
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        exclude: /*
