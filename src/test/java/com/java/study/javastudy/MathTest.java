@@ -3,7 +3,7 @@ package com.java.study.javastudy;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
 import org.apache.commons.lang3.RandomUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -17,12 +17,12 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class MathTest {
 
     @Test
-    public void testSimpleMath(){
-        int pow_2 = (int)Math.pow(2, -2);
-        int pow_1 = (int)Math.pow(2, -1);
-        int pow0 = (int)Math.pow(2, 0);
-        int pow1 = (int)Math.pow(2, 1);
-        int pow2 = (int)Math.pow(2, 2);
+    public void testSimpleMath() {
+        int pow_2 = (int) Math.pow(2, -2);
+        int pow_1 = (int) Math.pow(2, -1);
+        int pow0 = (int) Math.pow(2, 0);
+        int pow1 = (int) Math.pow(2, 1);
+        int pow2 = (int) Math.pow(2, 2);
 
         StringBuffer stringBuffer = new StringBuffer("*****");
         stringBuffer.replace(0, 3, "|");
@@ -92,7 +92,6 @@ public class MathTest {
             }
         }
     }
-
 
 
     @Test

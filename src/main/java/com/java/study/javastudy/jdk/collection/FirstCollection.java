@@ -1,6 +1,6 @@
 package com.java.study.javastudy.jdk.collection;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class FirstCollection {
     @Test
-    public  void  setcollection(){
-        List  list =new ArrayList();
+    public void setcollection() {
+        List list = new ArrayList();
         HashSet<String> set = new HashSet<>();
         set.add("f");
         set.add("f");
